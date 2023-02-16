@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/15 10:47:05 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/16 09:03:42 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,16 @@ int *mini_sort(int *array, int len)
 	// 	i++;
 	// }
 	return (array);
+}
+
+void	ft_set_zero(int *st_a, int len)
+{
+	int i;
+
+	i = 0;
+	while(i < len)
+	{
+		st_a[i] = 0;
+		i++;
+	}
 }

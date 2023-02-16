@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/15 16:15:36 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/16 08:58:00 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,22 @@ int	*do_checks(int *st_a, int len)
 	int *sorted;
 
 	if (!st_a || st_a == NULL)
-		error_msg("Error alloc\n", 1);
-	if (!ready_sorted(st_a, len)) // list is sorted
+	{
+		// error_msg("Error alloc\n", 1);
+		printf("Error alloc\n");
+	}
+	if (!ready_sorted(st_a, len))
 	{
 		free(st_a);
 		exit(0);
 	}
 	sorted = no_duplicates(st_a, len);
 	if (!sorted)
-		error_msg("Error dup\n", 1);
-	printf("done\n");
+	{
+		// error_msg("Error dup\n", 1);
+		printf("Error dup\n");
+	}
+	printf("check done\n");
 	return(sorted);
 }
 
@@ -85,7 +91,7 @@ int *allocate_n_fill_stack(char **array)
 	if (!st_a)
 	{
 		free(st_a);
-		printf("error callocin st_a\n");
+		printf("error callocin st_a\n"); //HOX
 		exit(1);
 	}
 	i = 0;
@@ -95,7 +101,8 @@ int *allocate_n_fill_stack(char **array)
 		num = ft_atoi(array[i]);
 		if(num == 0 && *array[i] != '0')
 		{
-			error_msg("Error in atoi\n", 1);
+			// error_msg("Error in atoi\n", 1);
+			printf("Error in atoi\n");
 		}
 		st_a[i] = ft_atoi(array[i]);
 		i++;
@@ -124,22 +131,29 @@ int	work_stack(char **array)
 	sorted = do_checks(st_a, len);
 	st_b = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_b)
-		error_msg("Error allocating st_b", 1);
+	{
+		// error_msg("Error allocating st_b", 1);
+		printf("Error allocating st_b\n");
+	}
 	while(i < len) // fill stack b with integers that tell the position of numbers
 	{
 		st_b[i] = find_pos(sorted, st_a[i]);
 		i++;
 	}
-	printf("Len is = %d\n", len);;
-	ft_bzero(st_a, len);
-	// i = 0;
-	// while(i < len)
-	// {
-	// 	printf("after bzero st_a[%d] = %d\n", i , st_a[i]);
-	// 	i++;
-	// }
-	if (!work_binaries(st_b, sorted, len))
-		error_msg("Error when returning from binaries", 1);
+	printf("Len is = %d\n", len);
+	ft_set_zero(st_a, len);
+	// ft_bzero(st_a, len); can not use!
+	i = 0;
+	while(i < len)
+	{
+		printf("after set_zero st_a[%d] = %d\n", i , st_a[i]);
+		i++;
+	}
+	if (!work_binaries(st_b, sorted, (size_t)len))
+	{
+		// error_msg("Error when returning from binaries", 1);
+		printf("Error when working biaries\\n");
+	}
 	// i = 0;
 	// while(i < len)
 	// {

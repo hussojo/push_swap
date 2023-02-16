@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/15 16:07:48 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/16 09:31:43 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		av_count(char **array);
 void	error_msg(char *msg, int flag);
 int		ready_sorted(int *st_a, int len);
 int		*mini_sort(int *sorted, int len);
+void	ft_set_zero(int *st_a, int len);
 
 // work_stack.c
 int		find_pos(int *sorted, int st_a);
@@ -40,7 +41,7 @@ int		*allocate_n_fill_stack(char **array);
 int		work_stack(char **array);
 
 // work_binaries.c
+void	sort_bin(int *st_b, int size);
 int		work_binaries(int *st_b, int *sorted, int len);
-// void	sort_bin(int *bin, int size);
 
 #endif
