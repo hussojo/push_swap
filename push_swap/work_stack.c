@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/16 08:58:00 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/16 14:44:21 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,19 @@ int	work_stack(char **array)
 		printf("after set_zero st_a[%d] = %d\n", i , st_a[i]);
 		i++;
 	}
-	if (!work_binaries(st_b, sorted, (size_t)len))
+	i = 0;
+	while(i < len)
+	{
+		printf("st_b[%d] = %d\n", i , st_b[i]);
+		i++;
+	}
+	i = 0;
+	while(i < len)
+	{
+		printf("sorted[%d] = %d\n", i , sorted[i]);
+		i++;
+	}
+	if (!work_binaries(st_b, st_a, sorted, len))
 	{
 		// error_msg("Error when returning from binaries", 1);
 		printf("Error when working biaries\\n");
