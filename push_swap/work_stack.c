@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/16 14:44:21 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/18 13:44:39 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,12 @@ int *allocate_n_fill_stack(char **array)
 		i++;
 	}
 	i = 0;
-	while(st_a[i])
-	{
-		printf("st_a[%d] = %d\n", i , st_a[i]);
-		i++;
-	}
+	// while(st_a[i])
+	// {
+	// 	printf("st_a[%d] = %d\n", i , st_a[i]);
+	// 	i++;
+	// }
+	// printf("st_a[4] = %d\n", st_a[4]);
 	free(array);
 	return(st_a);
 }
@@ -140,28 +141,27 @@ int	work_stack(char **array)
 		st_b[i] = find_pos(sorted, st_a[i]);
 		i++;
 	}
-	printf("Len is = %d\n", len);
+	// printf("Len is = %d\n", len);
 	ft_set_zero(st_a, len);
-	// ft_bzero(st_a, len); can not use!
 	i = 0;
-	while(i < len)
-	{
-		printf("after set_zero st_a[%d] = %d\n", i , st_a[i]);
-		i++;
-	}
-	i = 0;
-	while(i < len)
-	{
-		printf("st_b[%d] = %d\n", i , st_b[i]);
-		i++;
-	}
-	i = 0;
-	while(i < len)
-	{
-		printf("sorted[%d] = %d\n", i , sorted[i]);
-		i++;
-	}
-	if (!work_binaries(st_b, st_a, sorted, len))
+	// while(i < len)
+	// {
+	// 	printf("after set_zero st_a[%d] = %d\n", i , st_a[i]);
+	// 	i++;
+	// }
+	// i = 0;
+	// while(i < len)
+	// {
+	// 	printf("st_b[%d] = %d\n", i , st_b[i]);
+	// 	i++;
+	// }
+	// i = 0;
+	// while(i < len)
+	// {
+	// 	printf("sorted[%d] = %d\n", i , sorted[i]);
+	// 	i++;
+	// }
+	if (!work_binaries(st_b, st_a, sorted, len)) //needs sorted array to find the biggest number
 	{
 		// error_msg("Error when returning from binaries", 1);
 		printf("Error when working biaries\\n");

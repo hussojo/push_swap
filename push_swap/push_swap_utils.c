@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/16 10:21:23 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/18 13:44:37 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,6 @@ int *mini_sort(int *array, int len)
 			i++;
 	}
 	i = 0;
-	// while (array[i]) //!!! ASK MERI how to print out integers in array!!!
-	// {
-	// 	printf("sorted = %d\n", array[i]);
-	// 	i++;
-	// }
 	return (array);
 }
 

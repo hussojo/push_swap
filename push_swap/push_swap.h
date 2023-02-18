@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/16 14:44:19 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/18 13:53:36 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ int		*allocate_n_fill_stack(char **array);
 int		work_stack(char **array);
 
 // work_binaries.c
-// void	sort_bin(int *st_b, int *st_a, int size);
+void	sort_bin(int *st_b, int *st_a, int size, int len);
 int		work_binaries(int *st_b, int *st_a, int *sorted, int len);
 
 // push_op.c
+void	op_pb(int *array_from, int *array_to);
+void	move_up(int *array);
 void	move_down(int *stack);
 void	push_op(int *st_b, int *st_a);
 
