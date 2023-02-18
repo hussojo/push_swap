@@ -6,22 +6,15 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/18 13:44:36 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/18 14:47:33 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void move_up(int *array)
+void op_pa(int *array_from, int *array_to)
 {
-	int i = 0;
 
-	while (array[i + 1])
-	{
-		array[i] = array[i + 1];
-		i++;
-	}
-	array[i] = 0;
 }
 
 void op_pb(int *array_from, int *array_to)
@@ -30,7 +23,6 @@ void op_pb(int *array_from, int *array_to)
 	array_from[0] = 0;
 	printf("pb\n");
 	// ft_putstr_fd("pb\n", 1);
-	move_up(array_from);
 }
 
 void move_down(int *stack)
@@ -54,10 +46,9 @@ void move_down(int *stack)
 
 void push_op(int *st_b, int *st_a)
 {
-	if(st_a[0] == 0)
-		op_pb(st_b, st_a);
-	else
+	if(st_a[0] != 0)
 		move_down(st_a);
+	op_pb(st_b, st_a);
 	return ;
 }
 

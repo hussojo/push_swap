@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/18 11:04:11 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/18 13:56:57 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ int	main(int ac, char **av)
 			// error_msg("Error allocating ft_many_args\n", 1);
 			printf("Error allocating ft_many_args\n");
 		}
-		int i = 0;
-		while (array[i])
-		{
-			printf("array[%d] = %s\n", i, array[i]);
-			i++;
-		}
+		// int i = 0;
+		// while (array[i])
+		// {
+		// 	printf("array[%d] = %s\n", i, array[i]);
+		// 	i++;
+		// }
 	}
 	if(!work_stack(array))
 	{
