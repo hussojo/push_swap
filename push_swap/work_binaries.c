@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/18 14:39:39 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/18 16:10:32 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,20 @@ void	sort_bin(int *st_b, int *st_a, int size, int len)
 	while(i < size)
 	{
 		j = 0;
-		while (j < len) //get len
+		while (j < len)
 		{
-			if ((st_b[i] & i) == 0)
+			if (((st_b[i]>>i) & 1) == 0)
 				push_op(st_b, st_a);
-			else
-				op_ra(st_b);
+			op_ra(st_b);
 			j++;
 		}
-		while (st_a[i] != 0)
+		while (st_a[0] != 0)
+		{
+			move_down(st_b);
+			op_pa(st_a, st_b);
+		}
 
-		i++;
+	i++;
 	}
 }
 
