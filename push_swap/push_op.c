@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/18 17:26:03 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/19 09:44:07 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void op_pa(int *array_from, int *array_to)
 	array_to[0] = array_from[0];
 	array_from[0] = 0;
 	move_up(array_from);
-	printf("pa\n");
-	// ft_putstr_fd("pa\n", 1);
+	ft_putstr_fd("pa\n", 1);
 }
 
 void op_pb(int *array_from, int *array_to)
@@ -26,8 +25,7 @@ void op_pb(int *array_from, int *array_to)
 	array_to[0] = array_from[0];
 	array_from[0] = 0;
 	move_up(array_from);
-	printf("pb\n");
-	// ft_putstr_fd("pb\n", 1);
+	ft_putstr_fd("pb\n", 1);
 }
 
 void move_up(int *array)
@@ -49,10 +47,8 @@ void move_down(int *stack)
 
 	len = 0;
 	temp = 0;
-	// printf("here move_down\n");
 	while(stack[len] != 0)
 		len++;
-	// printf("len = %d\n", len);
 	while (len > 0)
 	{
 		stack[len] = stack[len - 1];

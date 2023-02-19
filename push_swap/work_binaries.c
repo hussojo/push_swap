@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/18 17:44:24 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/19 09:44:04 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void op_ra(int *array)
 		i++;
 	}
 	array[i] = temp;
-	// ft_putstr_fd("ra\n", 1);
-	printf("ra\n");
+	ft_putstr_fd("ra\n", 1);
 	return ;
 }
 
@@ -36,7 +35,7 @@ void	sort_bin(int *st_b, int *st_a, int size, int len)
 	int i = 0;
 	int j = 0;
 
-	while(i < size)
+	while(i < size && ready_sorted(st_b, len))
 	{
 		j = 0;
 		while (j < len)
@@ -59,21 +58,12 @@ void	sort_bin(int *st_b, int *st_a, int size, int len)
 
 int work_binaries(int *st_b, int *st_a, int *sorted, int len)
 {
-	// int i = 0;
 	int largest; // largest number in ORIGINAL inputs
 	int size; //the max amount of digits
-	// printf("len2 = %d\n", len);
 	largest = sorted[len - 1];
-	// printf("largest= %d\n", largest);
 	size = 0;
 	while((largest >> size) != 0)
 		size++;
-	// printf("size = %d\n", size);
 	sort_bin(st_b, st_a, size, len);
-	// while(i < len)
-	// {
-	// 	printf("st_b[%d] = %d\n", i, st_b[i]);
-	// 	i++;
-	// }
 	return (1);
 }

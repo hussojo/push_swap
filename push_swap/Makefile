@@ -6,7 +6,7 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/18 17:25:13 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/19 09:48:51 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,9 @@ all: $(NAME)
 $(NAME): $(SRC)
 	make -C ./libft_push_swap/ all
 	mv ./libft_push_swap/libft.a ./$(NAME)
-	$(CC) -c $(BUILD_FLAGS) $(SRC) -I $(INCLUDE) -g
+	$(CC) -c $(BUILD_FLAGS) $(SRC) -I $(INCLUDE)  -g
 	ar rus $(NAME) $(OBJ)
+
 
 clean:
 	$(RM) $(OBJ)

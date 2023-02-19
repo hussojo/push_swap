@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/18 17:25:20 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/19 10:27:46 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	*no_duplicates(int *st_a, int len)
 
 	sorted = (int *)ft_calloc(sizeof(int), len);
 	if (!sorted)
-		return 0;
+	{
+		free(sorted);
+		error_msg("Error\n", 1);
+	}
 	sorted[len] = '\0';
 	while (i < len)
 	{
@@ -43,15 +46,13 @@ int	*no_duplicates(int *st_a, int len)
 	while (sorted[i])
 	{
 		if (sorted[i] == sorted[i + 1])
+		{
+			free(sorted);
 			return (0);
+		}
 		i++;
 	}
 	i = 0;
-	// while (st_a[i])
-	// {
-	// 	printf("sorted[%d] = %d\n", i, sorted[i]); // HOX
-	// 	i++;
-	// }
 	return (sorted);
 }
 
@@ -60,10 +61,7 @@ int	*do_checks(int *st_a, int len)
 	int *sorted;
 
 	if (!st_a || st_a == NULL)
-	{
-		// error_msg("Error alloc\n", 1);
-		printf("Error alloc\n");
-	}
+		error_msg("Error\n", 1);
 	if (!ready_sorted(st_a, len))
 	{
 		free(st_a);
@@ -72,10 +70,9 @@ int	*do_checks(int *st_a, int len)
 	sorted = no_duplicates(st_a, len);
 	if (!sorted)
 	{
-		// error_msg("Error dup\n", 1);
-		printf("Error dup\n");
+		free(st_a);
+		error_msg("Error\n", 1);
 	}
-	printf("check done\n");
 	return(sorted);
 }
 
@@ -89,31 +86,17 @@ int *allocate_n_fill_stack(char **array)
 	len = av_count(array);
 	st_a = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_a)
-	{
-		free(st_a);
-		printf("error callocin st_a\n"); //HOX
-		exit(1);
-	}
+		error_msg("Error\n", 1);
 	i = 0;
 	num = 1;
 	while (array[i])
 	{
 		num = ft_atoi(array[i]);
 		if(num == 0 && *array[i] != '0')
-		{
-			// error_msg("Error in atoi\n", 1);
-			printf("Error in atoi\n");
-		}
+			error_msg("Error\n", 1);
 		st_a[i] = ft_atoi(array[i]);
 		i++;
 	}
-	i = 0;
-	// while(st_a[i])
-	// {
-	// 	printf("st_a[%d] = %d\n", i , st_a[i]);
-	// 	i++;
-	// }
-	// printf("st_a[4] = %d\n", st_a[4]);
 	free(array);
 	return(st_a);
 }
@@ -132,46 +115,16 @@ int	work_stack(char **array)
 	sorted = do_checks(st_a, len);
 	st_b = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_b)
-	{
-		// error_msg("Error allocating st_b", 1);
-		printf("Error allocating st_b\n");
-	}
-	while(i < len) // fill stack b with integers that tell the position of numbers
+		error_msg("Error\n", 1);
+	while(i < len)
 	{
 		st_b[i] = find_pos(sorted, st_a[i]);
 		i++;
 	}
-	// printf("Len is = %d\n", len);
 	ft_set_zero(st_a, len);
 	i = 0;
-	// while(i < len)
-	// {
-	// 	printf("after set_zero st_a[%d] = %d\n", i , st_a[i]);
-	// 	i++;
-	// }
-	// i = 0;
-	// while(i < len)
-	// {
-	// 	printf("st_b[%d] = %d\n", i , st_b[i]);
-	// 	i++;
-	// }
-	// i = 0;
-	// while(i < len)
-	// {
-	// 	printf("sorted[%d] = %d\n", i , sorted[i]);
-	// 	i++;
-	// }
-	if (!work_binaries(st_b, st_a, sorted, len)) //needs sorted array to find the biggest number
-	{
-		// error_msg("Error when returning from binaries", 1);
-		printf("Error when working biaries\\n");
-	}
-	// i = 0;
-	// while(i < len)
-	// {
-	// 	printf("st_b[%d] = %d\n", i , st_b[i]);
-	// 	i++;
-	// }
+	if (!work_binaries(st_b, st_a, sorted, len))
+		error_msg("Error\n", 1);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/18 17:25:22 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/19 09:43:59 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int av_count(char **array)
 	count = 0;
 	while (array[count])
 		count++;
-	// printf("av_count:%d\n", count); // HOX
 	return(count);
 }
 
@@ -37,13 +36,9 @@ int ready_sorted(int *st_a, int len)
 	while (i < len -1)
 	{
 		if (st_a[i+1] < st_a[i])
-		{
-			// printf("not sorted\n");
 			return 1;
-		}
 		i++;
 	}
-	// printf("sorted\n");
 	return 0;
 }
 
