@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 14:17:46 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 14:38:10 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int *allocate_n_fill_stack(char **array)
 		num = ft_atoi(array[i]);
 		if(num == 0 && *array[i] != '0')
 		{
-			free(array);
+			free_array(array);
 			error_msg("Error atoi'ing\n", st_a, 1);
 		}
 		st_a[i] = ft_atoi(array[i]);

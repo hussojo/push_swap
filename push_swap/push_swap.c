@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 14:16:04 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 14:49:52 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**ft_one_arg(char **av, char **array)
 	array = ft_split(av[1], 32);
 	if(!array)
 	{
-		free(array);
+		free_array(array);
 		return (NULL);
 	}
 	return (array);
@@ -33,7 +33,7 @@ char	**ft_many_args(char **av, int ac, char **array)
 	array = (char **)ft_calloc(sizeof(char *), ac);
 	if (!array)
 	{
-		free(array);
+		free_array(array);
 		return (NULL);
 	}
 	while (i < ac)
@@ -49,8 +49,8 @@ int	main(int ac, char **av)
 {
 	char	**array;
 
-	if(ac < 2)
-		write(1, "Error\n", 7);
+	if (ac == 1)
+		return (0);
 	array = 0;
 	if (ac == 2)
 	{

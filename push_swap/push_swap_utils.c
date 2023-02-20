@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 14:21:18 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 14:37:50 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int av_count(char **array)
+int	av_count(char **array)
 {
 	int count;
 
@@ -22,14 +22,14 @@ int av_count(char **array)
 	return(count);
 }
 
-void error_msg(char *msg, void *array, int flag)
+void	error_msg(char *msg, void *array, int flag)
 {
 	ft_putstr_fd(msg, 2);
 	free (array);
 	exit(flag);
 }
 
-int ready_sorted(int *st_a, int len)
+int	ready_sorted(int *st_a, int len)
 {
 	int i;
 
@@ -43,7 +43,7 @@ int ready_sorted(int *st_a, int len)
 	return 0;
 }
 
-int *mini_sort(int *array, int len)
+int	*mini_sort(int *array, int len)
 {
 	int	temp = 0;
 	int i = 0;
@@ -76,7 +76,7 @@ void	ft_set_zero(int *st_a, int len)
 	}
 }
 
-void free_array(char **array)
+void	free_array(char **array)
 {
 	int i = 0;
 
