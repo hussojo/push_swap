@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 16:43:52 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:06:31 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	sort_three(int *array, int len)
 			op_rra(array);
 		}
 	}
+	free(array);
 	return ;
 }
 
@@ -56,7 +57,6 @@ void	sort_bin(int *st_b, int *st_a, int size, int len)
 	}
 }
 
-
 int work_binaries(int *st_b, int *st_a, int *sorted, int len)
 {
 	int largest; // largest number in ORIGINAL inputs
@@ -66,7 +66,11 @@ int work_binaries(int *st_b, int *st_a, int *sorted, int len)
 	while((largest >> size) != 0)
 		size++;
 	if (len == 3)
+	{
+		free(st_a);
+		free(sorted);
 		sort_three(st_b, len);
+	}
 	else
 		sort_bin(st_b, st_a, size, len);
 	return (1);
