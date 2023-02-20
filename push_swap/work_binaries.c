@@ -6,27 +6,26 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 12:38:45 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 16:43:52 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void op_ra(int *array)
+void	sort_three(int *array, int len)
 {
-	int temp;
-	int i;
-
-	temp = 0;
-	i = 0;
-	temp = array[i];
-	while (array[i + 1])
+	int i = 0;
+	while (ready_sorted(array, len) == 1)
 	{
-		array[i] = array[i + 1];
-		i++;
+		if (array[i] > array[i+1])
+		{
+			op_sa(array);
+		}
+		else
+		{
+			op_rra(array);
+		}
 	}
-	array[i] = temp;
-	ft_putstr_fd("ra\n", 1);
 	return ;
 }
 
@@ -66,6 +65,9 @@ int work_binaries(int *st_b, int *st_a, int *sorted, int len)
 	size = 0;
 	while((largest >> size) != 0)
 		size++;
-	sort_bin(st_b, st_a, size, len);
+	if (len == 3)
+		sort_three(st_b, len);
+	else
+		sort_bin(st_b, st_a, size, len);
 	return (1);
 }
