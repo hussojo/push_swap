@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/18 17:25:13 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 14:20:58 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@
 
 # include "libft_push_swap/libft.h"
 
-// main.c
-int		main(int ac, char **av);
-
 // push_swap.c
 void	get_position(char **array);
 char	**ft_one_arg(char **av, char **array);
@@ -30,10 +27,11 @@ char	**ft_many_args(char **av, int ac, char **array);
 
 // push_swap_utils.c
 int		av_count(char **array);
-void	error_msg(char *msg, int flag);
+void	error_msg(char *msg, void *array, int flag);
 int		ready_sorted(int *st_a, int len);
 int		*mini_sort(int *sorted, int len);
 void	ft_set_zero(int *st_a, int len);
+void	free_array(char **array);
 
 // work_stack.c
 int		find_pos(int *sorted, int st_a);

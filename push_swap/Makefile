@@ -6,7 +6,7 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/19 11:38:46 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/20 13:52:32 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ BUILD_FLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft_push_swap
 INCLUDE = ./libft_push_swap/libft.h
 
-SRC =	main.c push_swap.c push_swap_utils.c work_stack.c work_binaries.c push_op.c
+SRC =	push_swap.c push_swap_utils.c work_stack.c work_binaries.c push_op.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/19 09:43:59 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 14:21:18 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int av_count(char **array)
 	return(count);
 }
 
-void error_msg(char *msg, int flag)
+void error_msg(char *msg, void *array, int flag)
 {
 	ft_putstr_fd(msg, 2);
+	free (array);
 	exit(flag);
 }
 
@@ -73,4 +74,16 @@ void	ft_set_zero(int *st_a, int len)
 		st_a[i] = 0;
 		i++;
 	}
+}
+
+void free_array(char **array)
+{
+	int i = 0;
+
+	while(array[i])
+	{
+		free (array[i]);
+		i++;
+	}
+	free(array);
 }

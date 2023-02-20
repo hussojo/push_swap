@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/19 09:54:25 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 14:16:04 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,27 @@ char	**ft_many_args(char **av, int ac, char **array)
 		j++;
 	}
 	return (array);
+}
+
+int	main(int ac, char **av)
+{
+	char	**array;
+
+	if(ac < 2)
+		write(1, "Error\n", 7);
+	array = 0;
+	if (ac == 2)
+	{
+		array = ft_one_arg(av, array);
+		if(!array || array[0] == NULL)
+			error_msg("Error\n", array, 1);
+	}
+	if (ac > 2)
+	{
+		array = ft_many_args(av, ac, array);
+		if(!array || array[0] == NULL)
+			error_msg("Error\n", array, 1);
+	}
+	work_stack(array);
+	return (0);
 }

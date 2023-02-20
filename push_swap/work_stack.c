@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/19 10:27:46 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/20 14:17:46 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int	*no_duplicates(int *st_a, int len)
 
 	sorted = (int *)ft_calloc(sizeof(int), len);
 	if (!sorted)
-	{
-		free(sorted);
-		error_msg("Error\n", 1);
-	}
+		error_msg("Error allocating sorted\n", sorted, 1);
 	sorted[len] = '\0';
 	while (i < len)
 	{
@@ -42,17 +39,18 @@ int	*no_duplicates(int *st_a, int len)
 		i++;
 	}
 	sorted = mini_sort(sorted, len);
+	if (!sorted)
+		error_msg("Error in sorted\n", sorted, 1);
 	i = 0;
 	while (sorted[i])
 	{
 		if (sorted[i] == sorted[i + 1])
 		{
 			free(sorted);
-			return (0);
+			return(0);
 		}
 		i++;
 	}
-	i = 0;
 	return (sorted);
 }
 
@@ -60,8 +58,6 @@ int	*do_checks(int *st_a, int len)
 {
 	int *sorted;
 
-	if (!st_a || st_a == NULL)
-		error_msg("Error\n", 1);
 	if (!ready_sorted(st_a, len))
 	{
 		free(st_a);
@@ -69,10 +65,7 @@ int	*do_checks(int *st_a, int len)
 	}
 	sorted = no_duplicates(st_a, len);
 	if (!sorted)
-	{
-		free(st_a);
-		error_msg("Error\n", 1);
-	}
+		error_msg("Error in dup2\n", st_a, 1);
 	return(sorted);
 }
 
@@ -86,18 +79,20 @@ int *allocate_n_fill_stack(char **array)
 	len = av_count(array);
 	st_a = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_a)
-		error_msg("Error\n", 1);
+		error_msg("Error allocating st_a\n", st_a, 1);
 	i = 0;
 	num = 1;
 	while (array[i])
 	{
 		num = ft_atoi(array[i]);
 		if(num == 0 && *array[i] != '0')
-			error_msg("Error\n", 1);
+		{
+			free(array);
+			error_msg("Error atoi'ing\n", st_a, 1);
+		}
 		st_a[i] = ft_atoi(array[i]);
 		i++;
 	}
-	free(array);
 	return(st_a);
 }
 
@@ -109,13 +104,13 @@ int	work_stack(char **array)
 	int len;
 	int *sorted;
 
-	st_a = 0;
-	len = av_count(array);
 	st_a = allocate_n_fill_stack(array);
+	len = av_count(array);
+	free_array(array);
 	sorted = do_checks(st_a, len);
 	st_b = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_b)
-		error_msg("Error\n", 1);
+		error_msg("Error allocating  st_b\n", st_b, 1);
 	while(i < len)
 	{
 		st_b[i] = find_pos(sorted, st_a[i]);
@@ -124,7 +119,11 @@ int	work_stack(char **array)
 	ft_set_zero(st_a, len);
 	i = 0;
 	if (!work_binaries(st_b, st_a, sorted, len))
-		error_msg("Error\n", 1);
+	{
+		free (st_b);
+		free (st_a);
+		error_msg("Error work binaries\n", sorted, 1);
+	}
 	return (1);
 }
 
