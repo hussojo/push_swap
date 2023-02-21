@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/21 09:30:41 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/21 10:14:56 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ void	sort_three(int *array)
 
 void	sort_four(int *st_b, int *st_a, int len)
 {
-	int min;
+	int min; // is not index??
 
 	min = find_min(st_b, len);
-	if (min == 1)
+	if (min == 0)
 		push_op(st_b, st_a);
+	else if (min == 1)
+	{
+		op_ra(st_b);
+		push_op(st_b, st_a);
+	}
 	else if (min == 2)
 	{
+		op_ra(st_b);
 		op_ra(st_b);
 		push_op(st_b, st_a);
 	}
 	else if (min == 3)
-	{
-		op_ra(st_b);
-		op_ra(st_b);
-		push_op(st_b, st_a);
-	}
-	else if (min == 4)
 	{
 		op_rra(st_b);
 		push_op(st_b, st_a);;
@@ -56,6 +56,12 @@ void	sort_four(int *st_b, int *st_a, int len)
 	sort_three(st_b);
 	free (st_a);
 	op_pa(st_a, st_b);
+	int i = 0;
+	while(i < 5)
+	{
+		printf("%d\n", st_b[i]);
+		i++;
+	}
 }
 
 void	sort_bin(int *st_b, int *st_a, int size, int len)
