@@ -6,16 +6,16 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 17:06:31 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/21 09:30:41 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(int *array, int len)
+void	sort_three(int *array)
 {
 	int i = 0;
-	while (ready_sorted(array, len) == 1)
+	while (ready_sorted(array, 3) == 1)
 	{
 		if (array[i] > array[i+1])
 		{
@@ -28,6 +28,34 @@ void	sort_three(int *array, int len)
 	}
 	free(array);
 	return ;
+}
+
+void	sort_four(int *st_b, int *st_a, int len)
+{
+	int min;
+
+	min = find_min(st_b, len);
+	if (min == 1)
+		push_op(st_b, st_a);
+	else if (min == 2)
+	{
+		op_ra(st_b);
+		push_op(st_b, st_a);
+	}
+	else if (min == 3)
+	{
+		op_ra(st_b);
+		op_ra(st_b);
+		push_op(st_b, st_a);
+	}
+	else if (min == 4)
+	{
+		op_rra(st_b);
+		push_op(st_b, st_a);;
+	}
+	sort_three(st_b);
+	free (st_a);
+	op_pa(st_a, st_b);
 }
 
 void	sort_bin(int *st_b, int *st_a, int size, int len)
@@ -68,8 +96,13 @@ int work_binaries(int *st_b, int *st_a, int *sorted, int len)
 	if (len == 3)
 	{
 		free(st_a);
+		free(sorted); // check when is sorted needed after this?? should free earlier?
+		sort_three(st_b);
+	}
+	else if (len == 4)
+	{
 		free(sorted);
-		sort_three(st_b, len);
+		sort_four(st_b, st_a, len);
 	}
 	else
 		sort_bin(st_b, st_a, size, len);

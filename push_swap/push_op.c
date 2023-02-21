@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 12:39:43 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/21 08:20:19 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,28 @@ void move_up(int *array)
 	array[i] = 0;
 }
 
-void move_down(int *stack)
+void move_down(int *array)
 {
 	int len;
 	int temp;
 
 	len = 0;
 	temp = 0;
-	while(stack[len] != 0)
+	while(array[len] != 0)
 		len++;
 	while (len > 0)
 	{
-		stack[len] = stack[len - 1];
+		array[len] = array[len - 1];
 		len --;
 	}
-	stack[0] = 0;
+	array[0] = 0;
 }
 
-void push_op(int *st_b, int *st_a)
+void push_op(int *array_from, int *array_to)
 {
-	if(st_a[0] != 0)
-		move_down(st_a);
-	op_pb(st_b, st_a);
+	if(array_to[0] != 0)
+		move_down(array_to);
+	op_pb(array_from, array_to);
 	return ;
 }
 

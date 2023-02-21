@@ -6,27 +6,27 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:46:29 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 16:42:59 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/21 08:24:53 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void op_sa(int *st_a)
+void op_sa(int *array)
 {
 	int temp;
 	int i;
 
 	temp = 0;
 	i = 0;
-	temp = st_a[i];
-	st_a[i] = st_a[i + 1];
-	st_a[i + 1] = temp;
+	temp = array[i];
+	array[i] = array[i + 1];
+	array[i + 1] = temp;
 	ft_putstr_fd("sa\n", 1);
 	return ;
 }
 
-void op_rra(int *st_a)
+void op_rra(int *array)
 {
 	int temp;
 	int i;
@@ -35,15 +35,15 @@ void op_rra(int *st_a)
 	temp = 0;
 	i = 0;
 	j = 0;
-	while (st_a[j + 1])
+	while (array[j + 1])
 		j++;
-	temp = st_a[j];
+	temp = array[j];
 	while (j > i)
 	{
-		st_a[j] = st_a[j - 1];
+		array[j] = array[j - 1];
 		j--;
 	}
-	st_a[i] = temp;
+	array[i] = temp;
 	ft_putstr_fd("rra\n", 1);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 15:52:39 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/21 08:55:49 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		ready_sorted(int *st_a, int len);
 int		*mini_sort(int *sorted, int len);
 void	ft_set_zero(int *st_a, int len);
 void	free_array(char **array);
+int		find_min(int *array, int len);
 
 // work_stack.c
 int		find_pos(int *sorted, int st_a);
@@ -41,7 +42,8 @@ int		*allocate_n_fill_stack(char **array);
 int		work_stack(char **array);
 
 // work_binaries.c
-void	sort_three(int *array, int len);
+void	sort_three(int *array);
+void	sort_four(int *st_b, int *st_a, int len);
 void	sort_bin(int *st_b, int *st_a, int size, int len);
 int		work_binaries(int *st_b, int *st_a, int *sorted, int len);
 
@@ -49,12 +51,12 @@ int		work_binaries(int *st_b, int *st_a, int *sorted, int len);
 void	op_pa(int *array_from, int *array_to);
 void	op_pb(int *array_from, int *array_to);
 void	move_up(int *array);
-void	move_down(int *stack);
-void	push_op(int *st_b, int *st_a);
+void	move_down(int *array);
+void	push_op(int *array_from, int *array_to);
 
 // sort_op.c
-void	op_sa(int *st_a);
-void	op_rra(int *st_a);
+void	op_sa(int *array);
+void	op_rra(int *array);
 void	op_ra(int *array);
 
 #endif
