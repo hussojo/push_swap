@@ -6,11 +6,11 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/20 15:53:21 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/21 17:58:59 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftpushswap.a
+NAME = pushswap
 CC = cc
 RM = rm -f
 BUILD_FLAGS = -Wall -Wextra -Werror
@@ -22,26 +22,23 @@ SRC =	push_swap.c push_swap_utils.c work_stack.c work_binaries.c push_op.c \
 
 OBJ = $(SRC:.c=.o)
 
-H_FILES = push_swap.h
-
 all: $(NAME)
 
 $(NAME): $(SRC)
-	make -C ./libft_push_swap/ all
-	mv ./libft_push_swap/libft.a ./$(NAME)
-	$(CC) -c $(BUILD_FLAGS) $(SRC) -I $(INCLUDE)  -g
-	ar rus $(NAME) $(OBJ)
+	make -C ./libft_push_swap/
+	# mv ./libft_push_swap/libft.a ./libft.a
+	$(CC) -o $(NAME) $(BUILD_FLAGS) $(SRC) -I $(INCLUDE) -g -L./libft_push_swap -lft
 
 
 clean:
 	$(RM) $(OBJ)
-	cd $(LIBFT) && $(MAKE) clean -libft_push_swap
+	make -C ./libft_push_swap clean
 
 fclean: clean
 	$(RM) $(NAME)
-	cd $(LIBFT) && $(MAKE) fclean
+	make -C ./libft_push_swap fclean
 
 re: fclean all
 
 
-.PHONY: all clean fclean re $(LIBFT)
+.PHONY: all clean fclean re
