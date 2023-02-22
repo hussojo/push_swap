@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:46:29 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/22 10:19:19 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 17:18:47 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void op_sa(int *array)
 	return ;
 }
 
-void op_rra(int *array)
+void op_rra(int *array, int len)
 {
 	int temp;
 	int i;
@@ -35,7 +35,7 @@ void op_rra(int *array)
 	temp = 0;
 	i = 0;
 	j = 0;
-	while (array[j-1])
+	while (j < len - 1)
 		j++;
 	temp = array[j];
 	while (j > i)
@@ -44,24 +44,24 @@ void op_rra(int *array)
 		j--;
 	}
 	array[i] = temp;
-	ft_putstr_fd("rra\n", 1);
+	printf("rra\n");
 	return ;
 }
 
-void op_ra(int *array)
+void op_ra(int *array, int len)
 {
-	int temp;
+int temp;
 	int i;
 
 	temp = 0;
 	i = 0;
 	temp = array[i];
-	while (array[i + 1])
+	while (i < len - 1)
 	{
 		array[i] = array[i + 1];
 		i++;
 	}
 	array[i] = temp;
-	ft_putstr_fd("ra\n", 1);
+	printf("ra\n");
 	return ;
 }

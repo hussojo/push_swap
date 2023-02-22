@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/22 12:40:29 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 17:18:50 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void sort_three(int *array)
 		}
 		else
 		{
-			op_rra(array);
+			op_rra(array, 3);
 		}
 	}
 	free(array);
@@ -40,19 +40,19 @@ void	sort_four(int *st_b, int *st_a, int len)
 		push_op(st_b, st_a);
 	else if (min == 1)
 	{
-		op_ra(st_b);
+		op_ra(st_b, 4);
 		push_op(st_b, st_a);
 	}
 	else if (min == 2)
 	{
-		op_ra(st_b);
-		op_ra(st_b);
+		op_ra(st_b, 4);
+		op_ra(st_b, 4);
 		push_op(st_b, st_a);
 	}
 	else if (min == 3)
 	{
-		op_rra(st_b);
-		push_op(st_b, st_a);;
+		op_rra(st_b, 4);
+		push_op(st_b, st_a);
 	}
 	sort_three(st_b);
 	op_pa(st_a, st_b);
@@ -76,15 +76,19 @@ void	sort_bin(int *st_b, int *st_a, int size, int len)
 		while (j < len)
 		{
 			if (((st_b[0]>>i) & 1) == 0)
+			{
 				push_op(st_b, st_a);
+				len --;
+			}
 			else
-				op_ra(st_b);
+				op_ra(st_b, len);
 			j++;
 		}
 		while (st_a[0] != 0)
 		{
 			move_down(st_b);
 			op_pa(st_a, st_b);
+			len ++;
 		}
 		if (!ready_sorted(st_b, len))
 			exit(0);
@@ -94,10 +98,10 @@ void	sort_bin(int *st_b, int *st_a, int size, int len)
 
 int work_binaries(int *st_b, int *st_a, int *sorted, int len)
 {
-	int largest = 0; // largest number in ORIGINAL inputs
+	int largest = 0; // largest number in inputs
 	int size; //the max amount of digits
 
-	largest = sorted[len - 1];
+	largest = len;
 	size = 0;
 	free(sorted);
 	while((largest >> size) != 0)

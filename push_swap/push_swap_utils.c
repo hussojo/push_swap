@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/22 08:07:17 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 17:18:55 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	*mini_sort(int *array, int len)
 	int	temp = 0;
 	int i = 0;
 
-	while (i < len - 1)
+	while (i < len - 1) // maybe here??
 	{
 		if (array[i] > array[i + 1])
 		{
@@ -60,7 +60,7 @@ int	*mini_sort(int *array, int len)
 		else
 			i++;
 	}
-	i = 0;
+	i = 0; // not needed
 	return (array);
 }
 
@@ -90,15 +90,19 @@ void	free_array(char **array)
 
 int	find_min(int *array, int len)
 {
-	int min;
+	int min = 0;
 	int i = 0;
+	int index = 0;
 
 	min = array[0];
-	while(i < len)
+	while (i < len)
 	{
 		if (min > array[i])
-			min = i;
+		{
+			min = array[i];
+			index = i;
+		}
 		i++;
 	}
-	return (min);
+	return(index);
 }

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/22 12:50:08 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 17:18:49 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	*no_duplicates(int *st_a, int len)
 	if (!sorted)
 		error_msg("Error allocating sorted\n", sorted, 1);
 	sorted[len] = '\0';
-	while (i < len)
+	while (i < len) // (st_a[i]??)
 	{
 		sorted[i] = st_a[i];
 		i++;
