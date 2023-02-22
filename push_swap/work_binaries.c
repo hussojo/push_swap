@@ -6,15 +6,16 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/21 10:14:56 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 12:40:29 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(int *array)
+void sort_three(int *array)
 {
 	int i = 0;
+
 	while (ready_sorted(array, 3) == 1)
 	{
 		if (array[i] > array[i+1])
@@ -32,7 +33,7 @@ void	sort_three(int *array)
 
 void	sort_four(int *st_b, int *st_a, int len)
 {
-	int min; // is not index??
+	int min = 0;
 
 	min = find_min(st_b, len);
 	if (min == 0)
@@ -54,14 +55,14 @@ void	sort_four(int *st_b, int *st_a, int len)
 		push_op(st_b, st_a);;
 	}
 	sort_three(st_b);
-	free (st_a);
 	op_pa(st_a, st_b);
-	int i = 0;
-	while(i < 5)
-	{
-		printf("%d\n", st_b[i]);
-		i++;
-	}
+	free (st_a);
+	// int i = 0;
+	// while(i < 5)
+	// {
+	// 	printf("%d\n", st_b[i]);
+	// 	i++;
+	// }
 }
 
 void	sort_bin(int *st_b, int *st_a, int size, int len)
@@ -93,21 +94,21 @@ void	sort_bin(int *st_b, int *st_a, int size, int len)
 
 int work_binaries(int *st_b, int *st_a, int *sorted, int len)
 {
-	int largest; // largest number in ORIGINAL inputs
+	int largest = 0; // largest number in ORIGINAL inputs
 	int size; //the max amount of digits
+
 	largest = sorted[len - 1];
 	size = 0;
+	free(sorted);
 	while((largest >> size) != 0)
 		size++;
 	if (len == 3)
 	{
 		free(st_a);
-		free(sorted); // check when is sorted needed after this?? should free earlier?
 		sort_three(st_b);
 	}
 	else if (len == 4)
 	{
-		free(sorted);
 		sort_four(st_b, st_a, len);
 	}
 	else

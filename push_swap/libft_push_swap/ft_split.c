@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:49:55 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/08 10:32:07 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 11:10:40 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	count_words(char const *str, char c)
 		{
 			if (*(str + 1) == c || *(str + 1) == '\0')
 				nb_words++;
+			if (*(str + 1) == '\t')
+				return -1;
 		}
 		str++;
 	}
@@ -81,6 +83,8 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	words = count_words(s, c);
+	if (count_words < 0)
+		return 0;
 	array = (char **)malloc(sizeof(char *) * (words + 1));
 	if (array == NULL)
 		return (NULL);

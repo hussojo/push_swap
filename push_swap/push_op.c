@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/21 08:20:19 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 10:20:07 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void op_pa(int *array_from, int *array_to)
 {
+	if (array_to[0] != 0)
+		move_down(array_to);
 	array_to[0] = array_from[0];
 	array_from[0] = 0;
 	move_up(array_from);

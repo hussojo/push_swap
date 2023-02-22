@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 15:49:28 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 11:09:21 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ char	**ft_one_arg(char **av, char **array)
 {
 	array = ft_split(av[1], 32);
 	if(!array)
-	{
-		free_array(array);
-		return (NULL);
-	}
+		error_msg("Error\n", array, 1);
+	// int i = 0;
+	// while (array[i])
+	// {
+	// 	printf("array[%d]= %s", i, array[i]);
+	// 	i++;
+	// }
 	return (array);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:46:29 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/21 08:24:53 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 10:19:19 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void op_rra(int *array)
 	temp = 0;
 	i = 0;
 	j = 0;
-	while (array[j + 1])
+	while (array[j-1])
 		j++;
 	temp = array[j];
 	while (j > i)

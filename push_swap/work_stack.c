@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/20 15:49:30 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 12:50:08 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,18 @@ int	*do_checks(int *st_a, int len)
 	return(sorted);
 }
 
-int *allocate_n_fill_stack(char **array)
+int *allocate_n_fill_stack(char **array, int len)
 {
-	int len;
 	int i;
 	int num;
 	int *st_a;
 
-	len = av_count(array);
 	st_a = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_a)
 		error_msg("Error allocating st_a\n", st_a, 1);
 	i = 0;
 	num = 1;
-	while (array[i])
+	while (i < len) //test this!!!
 	{
 		num = ft_atoi(array[i]);
 		if(num == 0 && *array[i] != '0')
@@ -104,8 +102,8 @@ int	work_stack(char **array)
 	int len;
 	int *sorted;
 
-	st_a = allocate_n_fill_stack(array);
 	len = av_count(array);
+	st_a = allocate_n_fill_stack(array, len);
 	free_array(array);
 	sorted = do_checks(st_a, len);
 	st_b = (int *)ft_calloc(sizeof(int *), len);

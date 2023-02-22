@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/21 10:22:36 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 08:07:17 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,13 @@ int	find_min(int *array, int len)
 {
 	int min;
 	int i = 0;
-	int index;
 
-	index = 0;
 	min = array[0];
 	while(i < len)
 	{
 		if (min > array[i])
-			index = min;
+			min = i;
 		i++;
 	}
-	return (index);
+	return (min);
 }

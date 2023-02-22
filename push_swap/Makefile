@@ -6,11 +6,11 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/21 17:58:59 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/22 08:20:17 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pushswap
+NAME = push_swap
 CC = cc
 RM = rm -f
 BUILD_FLAGS = -Wall -Wextra -Werror

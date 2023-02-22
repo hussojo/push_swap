@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/21 08:55:49 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/22 12:48:35 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		find_min(int *array, int len);
 int		find_pos(int *sorted, int st_a);
 int		*no_duplicates(int *st_a, int len);
 int		*do_checks(int *st_a, int len);
-int		*allocate_n_fill_stack(char **array);
+int		*allocate_n_fill_stack(char **array, int len);
 int		work_stack(char **array);
 
 // work_binaries.c
