@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 15:02:41 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 15:12:32 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	move_down(long *array);
 void	push_op(long *array_from, long *array_to);
 
 // sort_op.c
-void	op_sa(long *array);
-void	op_rra(long *array, int len);
+void	op_sa(long **array);
+void	op_rra(long **array, int len);
 void	op_ra(long *array, int len);
 
 #endif
