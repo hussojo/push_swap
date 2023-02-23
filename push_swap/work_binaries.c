@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 11:03:29 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:57:17 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ void	sort_bin(long *st_b, long *st_a, int size, int len)
 		}
 		while (st_a[0] != 0)
 		{
+			printf("HEREHERE\n");
 			move_down(st_b);
 			op_pa(st_a, st_b);
 			len ++;
