@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 09:57:01 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 11:14:17 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void op_pb(long *array_from, long *array_to)
 	move_up(array_from);
 	// ft_putstr_fd("pb\n", 1);
 	printf("pb\n");
-	int i = 0;
-	while(array_to[i])
-	{
-		printf("%zu\n", array_to[i]);
-		i++;
-	}
+	// int i = 0;
+	// while(array_to[i])
+	// {
+	// 	printf("%zu\n", array_to[i]);
+	// 	i++;
+	// }
 }
 
 void move_up(long *array)

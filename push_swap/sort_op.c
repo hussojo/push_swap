@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:46:29 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 09:54:09 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 11:12:15 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void op_sa(long *array)
 	array[i + 1] = temp;
 	// ft_putstr_fd("sa\n", 1);
 	printf("sa\n");
-	i = 0;
-	while(array[i])
-	{
-		printf("%zu\n", array[i]);
-		i++;
-	}
+	// i = 0;
+	// while(array[i])
+	// {
+	// 	printf("%zu\n", array[i]);
+	// 	i++;
+	// }
 	return ;
 }
 
@@ -53,12 +53,12 @@ void op_rra(long *array, int len)
 	array[i] = temp;
 	// ft_putstr_fd("sa\n", 1);
 	printf("rra\n");
-	i = 0;
-	while(array[i])
-	{
-		printf("%zu\n", array[i]);
-		i++;
-	}
+	// i = 0;
+	// while(array[i])
+	// {
+	// 	printf("%zu\n", array[i]);
+	// 	i++;
+	// }
 	return ;
 }
 
@@ -78,11 +78,11 @@ int temp;
 	array[i] = temp;
 	// ft_putstr_fd("sa\n", 1);
 	printf("ra\n");
-	i = 0;
-	while(array[i])
-	{
-		printf("%zu\n", array[i]);
-		i++;
-	}
+	// i = 0;
+	// while(array[i])
+	// {
+	// 	printf("%zu\n", array[i]);
+	// 	i++;
+	// }
 	return ;
 }
