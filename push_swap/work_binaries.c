@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 09:49:15 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 10:44:57 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three(long *array)
+void sort_three(long *array, int flag)
 {
 	int i = 0;
 
@@ -27,11 +27,12 @@ void sort_three(long *array)
 			op_rra(array, 3);
 		}
 	}
-	free(array);
+	if (flag == 1)
+		free(array);
 	return ;
 }
 
-void	sort_four(long *st_b, long *st_a, int len)
+void	sort_four(long *st_b, long *st_a, int len, int flag)
 {
 	int min = 0;
 
@@ -54,15 +55,55 @@ void	sort_four(long *st_b, long *st_a, int len)
 		op_rra(st_b, 4);
 		push_op(st_b, st_a);
 	}
-	sort_three(st_b);
+	sort_three(st_b, 0);
 	op_pa(st_a, st_b);
-	free (st_a);
+	if (flag == 1)
+	{
+		free (st_a);
+		free(st_b);
+	}
 	// int i = 0;
 	// while(i < 5)
 	// {
 	// 	printf("%d\n", st_b[i]);
 	// 	i++;
 	// }
+}
+
+void sort_five(long *st_b, long *st_a, int len)
+{
+	int min = 0;
+
+	min = find_min(st_b, len);
+	if (min == 0)
+		push_op(st_b, st_a);
+	else if (min == 1)
+	{
+		op_ra(st_b, 5);
+		push_op(st_b, st_a);
+	}
+	else if (min == 2)
+	{
+		op_ra(st_b, 5);
+		op_ra(st_b, 5);
+		push_op(st_b, st_a);
+	}
+	else if (min == 3)
+	{
+		op_rra(st_b, 5);
+		op_rra(st_b, 5);
+		push_op(st_b, st_a);
+	}
+	else if (min == 4)
+	{
+		op_rra(st_b, 5);
+		push_op(st_b, st_a);
+	}
+	sort_four(st_b, st_a, 4, 0);
+	sort_three(st_b, 0);
+	op_pa(st_a, st_b);
+	free (st_a);
+	free(st_b);
 }
 
 void	sort_bin(long *st_b, long *st_a, int size, int len)
@@ -109,12 +150,12 @@ int work_binaries(long *st_b, long *st_a, long *sorted, int len)
 	if (len == 3)
 	{
 		free(st_a);
-		sort_three(st_b);
+		sort_three(st_b, 1);
 	}
 	else if (len == 4)
-	{
-		sort_four(st_b, st_a, len);
-	}
+		sort_four(st_b, st_a, len, 1);
+	else if (len == 5)
+		sort_five(st_b, st_a, len);
 	else
 		sort_bin(st_b, st_a, size, len);
 	return (1);
