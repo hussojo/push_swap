@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 10:30:43 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 09:14:32 by jhusso           ###   ########.fr       */
+/*   Created: 2023/02/23 09:14:47 by jhusso            #+#    #+#             */
+/*   Updated: 2023/02/23 09:17:29 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // modified to return 0 in case of overflow and numbers starting with 0 ex. 089
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	int		s;
 	long	res;

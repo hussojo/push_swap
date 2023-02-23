@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/22 17:18:50 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 09:49:15 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three(int *array)
+void sort_three(long *array)
 {
 	int i = 0;
 
@@ -31,7 +31,7 @@ void sort_three(int *array)
 	return ;
 }
 
-void	sort_four(int *st_b, int *st_a, int len)
+void	sort_four(long *st_b, long *st_a, int len)
 {
 	int min = 0;
 
@@ -65,7 +65,7 @@ void	sort_four(int *st_b, int *st_a, int len)
 	// }
 }
 
-void	sort_bin(int *st_b, int *st_a, int size, int len)
+void	sort_bin(long *st_b, long *st_a, int size, int len)
 {
 	int i = 0;
 	int j = 0;
@@ -96,7 +96,7 @@ void	sort_bin(int *st_b, int *st_a, int size, int len)
 	}
 }
 
-int work_binaries(int *st_b, int *st_a, int *sorted, int len)
+int work_binaries(long *st_b, long *st_a, long *sorted, int len)
 {
 	int largest = 0; // largest number in inputs
 	int size; //the max amount of digits

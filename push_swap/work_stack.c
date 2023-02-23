@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/22 17:18:49 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 09:35:40 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_pos(int *sorted, int st_a)
+int	find_pos(long *sorted, int st_a)
 {
 	int i;
 	int pos;
@@ -24,12 +24,12 @@ int	find_pos(int *sorted, int st_a)
 	return(pos);
 }
 
-int	*no_duplicates(int *st_a, int len)
+long	*no_duplicates(long *st_a, int len)
 {
 	int i = 0;
-	int *sorted;
+	long *sorted;
 
-	sorted = (int *)ft_calloc(sizeof(int), len);
+	sorted = (long *)ft_calloc(sizeof(long), len);
 	if (!sorted)
 		error_msg("Error allocating sorted\n", sorted, 1);
 	sorted[len] = '\0';
@@ -54,9 +54,9 @@ int	*no_duplicates(int *st_a, int len)
 	return (sorted);
 }
 
-int	*do_checks(int *st_a, int len)
+long	*do_checks(long *st_a, int len)
 {
-	int *sorted;
+	long *sorted;
 
 	if (!ready_sorted(st_a, len))
 	{
@@ -69,26 +69,26 @@ int	*do_checks(int *st_a, int len)
 	return(sorted);
 }
 
-int *allocate_n_fill_stack(char **array, int len)
+long *allocate_n_fill_stack(char **array, int len)
 {
 	int i;
 	int num;
-	int *st_a;
+	long *st_a;
 
-	st_a = (int *)ft_calloc(sizeof(int *), len);
+	st_a = (long *)ft_calloc(sizeof(long *), len);
 	if (!st_a)
 		error_msg("Error allocating st_a\n", st_a, 1);
 	i = 0;
 	num = 1;
 	while (i < len) //test this!!!
 	{
-		num = ft_atoi(array[i]);
+		num = ft_atol(array[i]);
 		if(num == 0 && *array[i] != '0')
 		{
 			free_array(array);
-			error_msg("Error atoi'ing\n", st_a, 1);
+			error_msg("Error atol'ing\n", st_a, 1);
 		}
-		st_a[i] = ft_atoi(array[i]);
+		st_a[i] = ft_atol(array[i]);
 		i++;
 	}
 	return(st_a);
@@ -96,17 +96,17 @@ int *allocate_n_fill_stack(char **array, int len)
 
 int	work_stack(char **array)
 {
-	int *st_a;
-	int *st_b;
+	long *st_a;
+	long *st_b;
 	int i = 0;
 	int len;
-	int *sorted;
+	long *sorted;
 
 	len = av_count(array);
 	st_a = allocate_n_fill_stack(array, len);
 	free_array(array);
 	sorted = do_checks(st_a, len);
-	st_b = (int *)ft_calloc(sizeof(int *), len);
+	st_b = (long *)ft_calloc(sizeof(long *), len);
 	if (!st_b)
 		error_msg("Error allocating  st_b\n", st_b, 1);
 	while(i < len)

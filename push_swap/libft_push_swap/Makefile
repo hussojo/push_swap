@@ -6,11 +6,12 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 11:57:07 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/11 11:23:43 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/23 09:28:47 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	ft_atoi \
+	ft_atol \
 	ft_bzero \
 	ft_calloc \
 	ft_isalnum \

@@ -6,31 +6,45 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/22 10:20:07 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 09:57:01 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void op_pa(int *array_from, int *array_to)
+void op_pa(long *array_from, long *array_to)
 {
 	if (array_to[0] != 0)
 		move_down(array_to);
 	array_to[0] = array_from[0];
 	array_from[0] = 0;
 	move_up(array_from);
-	ft_putstr_fd("pa\n", 1);
+	// ft_putstr_fd("pa\n", 1);
+	printf("pa\n");
+	int i = 0;
+	while(array_to[i])
+	{
+		printf("%zu\n", array_to[i]);
+		i++;
+	}
 }
 
-void op_pb(int *array_from, int *array_to)
+void op_pb(long *array_from, long *array_to)
 {
 	array_to[0] = array_from[0];
 	array_from[0] = 0;
 	move_up(array_from);
-	ft_putstr_fd("pb\n", 1);
+	// ft_putstr_fd("pb\n", 1);
+	printf("pb\n");
+	int i = 0;
+	while(array_to[i])
+	{
+		printf("%zu\n", array_to[i]);
+		i++;
+	}
 }
 
-void move_up(int *array)
+void move_up(long *array)
 {
 	int i = 0;
 
@@ -42,7 +56,7 @@ void move_up(int *array)
 	array[i] = 0;
 }
 
-void move_down(int *array)
+void move_down(long *array)
 {
 	int len;
 	int temp;
@@ -59,7 +73,7 @@ void move_down(int *array)
 	array[0] = 0;
 }
 
-void push_op(int *array_from, int *array_to)
+void push_op(long *array_from, long *array_to)
 {
 	if(array_to[0] != 0)
 		move_down(array_to);

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:02:54 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/12 16:16:37 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/23 09:15:46 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_list
 }					t_list;
 
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int c);
