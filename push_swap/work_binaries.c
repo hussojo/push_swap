@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 10:21:13 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:53:32 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void sort_three(long *array, int flag)
 	{
 		if (array[i] > array[i+1])
 		{
-			op_sa(&array);
+			op_sa(array);
 		}
 		else
 		{
-			op_rra(&array, 3);
+			op_rra(array, 3);
 		}
 	}
 	if (flag == 1)
@@ -52,7 +52,7 @@ void	sort_four(long *st_b, long *st_a, int len, int flag)
 	}
 	else if (min == 3)
 	{
-		op_rra(&st_b, 4);
+		op_rra(st_b, 4);
 		push_op(st_b, st_a);
 	}
 	sort_three(st_b, 0);
@@ -90,13 +90,13 @@ void sort_five(long *st_b, long *st_a, int len)
 	}
 	else if (min == 3)
 	{
-		op_rra(&st_b, 5);
-		op_rra(&st_b, 5);
+		op_rra(st_b, 5);
+		op_rra(st_b, 5);
 		push_op(st_b, st_a);
 	}
 	else if (min == 4)
 	{
-		op_rra(&st_b, 5);
+		op_rra(st_b, 5);
 		push_op(st_b, st_a);
 	}
 	sort_four(st_b, st_a, 4, 0);
