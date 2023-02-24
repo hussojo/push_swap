@@ -6,12 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 10:30:43 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 09:14:32 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 16:54:53 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // modified to return 0 in case of overflow and numbers starting with 0 ex. 089
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_atoi(const char *nptr)
 {
@@ -35,6 +36,8 @@ int	ft_atoi(const char *nptr)
 		if ((res > 2147483647 && s == 1) || (res < -2147483648 && s != 1))
 			return (0);
 	}
+	printf("%d\n", s);
+	printf("%ld\n", res);
 	res = res * s;
-	return ((int)res);
+	return (res);
 }
