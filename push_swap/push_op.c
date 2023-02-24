@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 11:14:17 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:21:12 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void op_pa(long *array_from, long *array_to)
 	array_to[0] = array_from[0];
 	array_from[0] = 0;
 	move_up(array_from);
-	// ft_putstr_fd("pa\n", 1);
-	printf("pa\n");
-	int i = 0;
-	while(array_to[i])
-	{
-		printf("%zu\n", array_to[i]);
-		i++;
-	}
+	ft_putstr_fd("pa\n", 1);
+	// printf("pa\n");
+	// int i = 0;
+	// while(i < 4)
+	// {
+	// 	printf("%zu\n", array_to[i]);
+	// 	i++;
+	// }
 }
 
 void op_pb(long *array_from, long *array_to)
@@ -34,8 +34,8 @@ void op_pb(long *array_from, long *array_to)
 	array_to[0] = array_from[0];
 	array_from[0] = 0;
 	move_up(array_from);
-	// ft_putstr_fd("pb\n", 1);
-	printf("pb\n");
+	ft_putstr_fd("pb\n", 1);
+	// printf("pb\n");
 	// int i = 0;
 	// while(array_to[i])
 	// {

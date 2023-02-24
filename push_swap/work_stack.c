@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 15:02:46 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 09:42:05 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	find_pos(long *sorted, int st_a)
 	i = 0;
 	while(sorted[i] != st_a)
 		i++;
-	pos = i +1;
+	pos = i + 1;
 	return(pos);
 }
 
