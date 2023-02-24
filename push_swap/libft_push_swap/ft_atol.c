@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:14:47 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 17:09:37 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 17:11:31 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,13 @@ long	ft_atol(const char *nptr)
 		if (*nptr++ == '\0')
 			return (0);
 	}
-	printf("%ld\n", s);
 	while (*nptr >= '0' && *nptr <= '9')
 	{
 		res = res * 10 + *nptr - '0';
-		printf("%ld\n", res);
 		if ((res > 2147483647 && s == 1) || (res > 2147483648 && s == -1))
 			return (0);
 		nptr++;
 	}
 	res = res * s;
-	printf("%ld\n", res);
 	return (res);
 }

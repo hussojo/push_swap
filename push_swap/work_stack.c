@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 17:09:36 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 17:11:33 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ long *allocate_n_fill_stack(char **array, int len)
 		error_msg("Error\n", st_a, 1);
 	i = 0;
 	num = 1;
-	while (i < len) //test this!!!
+	while (i < len)
 	{
 		num = ft_atol(array[i]);
 		if(num == 0 && *array[i] != '0')
