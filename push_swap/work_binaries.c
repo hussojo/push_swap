@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 10:53:32 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 14:45:02 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,30 @@ void	sort_four(long *st_b, long *st_a, int len, int flag)
 
 	min = find_min(st_b, len);
 	if (min == 0)
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 4);
 	else if (min == 1)
 	{
 		op_ra(st_b, 4);
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 4);
 	}
 	else if (min == 2)
 	{
 		op_ra(st_b, 4);
 		op_ra(st_b, 4);
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 4);
 	}
 	else if (min == 3)
 	{
 		op_rra(st_b, 4);
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 4);
 	}
 	sort_three(st_b, 0);
-	op_pa(st_a, st_b);
+	op_pa(st_a, st_b, 4);
 	if (flag == 1)
 	{
 		free (st_a);
 		free(st_b);
 	}
-	// int i = 0;
-	// while(i < 5)
-	// {
-	// 	printf("%d\n", st_b[i]);
-	// 	i++;
-	// }
 }
 
 void sort_five(long *st_b, long *st_a, int len)
@@ -76,32 +70,31 @@ void sort_five(long *st_b, long *st_a, int len)
 
 	min = find_min(st_b, len);
 	if (min == 0)
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 5);
 	else if (min == 1)
 	{
 		op_ra(st_b, 5);
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 5);
 	}
 	else if (min == 2)
 	{
 		op_ra(st_b, 5);
 		op_ra(st_b, 5);
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 5);
 	}
 	else if (min == 3)
 	{
 		op_rra(st_b, 5);
 		op_rra(st_b, 5);
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 5);
 	}
 	else if (min == 4)
 	{
 		op_rra(st_b, 5);
-		push_op(st_b, st_a);
+		push_op(st_b, st_a, 5);
 	}
 	sort_four(st_b, st_a, 4, 0);
-	sort_three(st_b, 0);
-	op_pa(st_a, st_b);
+	op_pa(st_a, st_b, 5);
 	free (st_a);
 	free(st_b);
 }
@@ -110,6 +103,7 @@ void	sort_bin(long *st_b, long *st_a, int size, int len)
 {
 	int i = 0;
 	int j = 0;
+	int flag = 0;
 
 	while(i < size)
 	{
@@ -118,25 +112,31 @@ void	sort_bin(long *st_b, long *st_a, int size, int len)
 		{
 			if (((st_b[0]>>i) & 1) == 0)
 			{
-				push_op(st_b, st_a);
-				len --;
+				push_op(st_b, st_a, len);
+				flag ++;
 			}
 			else
 				op_ra(st_b, len);
 			j++;
 		}
-		while (st_a[0] != 0)
+		while (flag > 0)
 		{
-			printf("HEREHERE\n");
-			move_down(st_b);
-			op_pa(st_a, st_b);
-			len ++;
+			move_down(&st_b, len);
+			op_pa(st_a, st_b, len);
+			flag --;
 		}
 		if (!ready_sorted(st_b, len))
 			exit(0);
 		i++;
 	}
-}
+	i = 0;
+	while(i < len)
+	{
+		printf("%ld\n", st_b[i]);
+		i++;
+	}
+	}
+
 
 int work_binaries(long *st_b, long *st_a, long *sorted, int len)
 {

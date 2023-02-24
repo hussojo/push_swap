@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:46:29 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 10:52:20 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 14:30:57 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int temp;
 	temp = 0;
 	i = 0;
 	temp = array[i];
-	while (i < len - 1)
+	while (array[i + 1] != 0 && i < len - 1)
 	{
 		array[i] = array[i + 1];
 		i++;

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 10:52:21 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/24 13:22:01 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	sort_bin(long *st_b, long *st_a, int size, int len);
 int		work_binaries(long *st_b, long *st_a, long *sorted, int len);
 
 // push_op.c
-void	op_pa(long *array_from, long *array_to);
-void	op_pb(long *array_from, long *array_to);
-void	move_up(long *array);
-void	move_down(long *array);
-void	push_op(long *array_from, long *array_to);
+void	op_pa(long *array_from, long *array_to, int len);
+void	op_pb(long *array_from, long *array_to, int len);
+void	move_up(long **array, int len);
+void	move_down(long **array, int len);
+void	push_op(long *array_from, long *array_to, int len);
 
 // sort_op.c
 void	op_sa(long *array);
