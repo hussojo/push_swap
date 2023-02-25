@@ -6,11 +6,20 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 16:03:22 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 15:05:11 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_two(long *array)
+{
+	int i = 0;
+	if (array[i] > array[i + 1])
+		op_sa(array);
+	free(array);
+	return ;
+}
 
 void sort_three(long *array, int flag)
 {
@@ -148,7 +157,12 @@ int work_binaries(long *st_b, long *st_a, long *sorted, int len)
 	free(sorted);
 	while((largest >> size) != 0)
 		size++;
-	if (len == 3)
+	if (len == 2)
+	{
+		free(st_a);
+		sort_two(st_b);
+	}
+	else if (len == 3)
 	{
 		free(st_a);
 		sort_three(st_b, 1);

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/25 11:18:51 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 15:03:37 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ long	*allocate_n_fill_stack(char **array, int len);
 int		work_stack(char **array);
 
 // work_binaries.c
+void	sort_two(long *array);
 void	sort_three(long *array, int flag);
 void	sort_four(long *st_b, long *st_a, int len, int flag);
 void	sort_five(long *st_b, long *st_a, int len);
