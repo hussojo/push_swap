@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/25 15:05:11 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 17:04:29 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,11 +131,19 @@ void	sort_bin(long *st_b, long *st_a, int size, int len)
 		while (flag > 0)
 		{
 			move_down(&st_b, len);
-			op_pa(st_a, st_b, len);
+			op_pa(st_a, st_b, len); // is not working if len == 10 12 14 16 18 20 22 24 26 28
 			flag --;
 		}
+		// int z = 0;
+		// while(st_b[z])
+		// {
+		// 	printf("%ld\n", st_b[i]);
+		// 	z++;
+		// }
 		if (!ready_sorted(st_b, len))
+		{
 			exit(0);
+		}
 		i++;
 	}
 	// i = 0;
@@ -162,7 +170,7 @@ int work_binaries(long *st_b, long *st_a, long *sorted, int len)
 		free(st_a);
 		sort_two(st_b);
 	}
-	else if (len == 3)
+	if (len == 3)
 	{
 		free(st_a);
 		sort_three(st_b, 1);

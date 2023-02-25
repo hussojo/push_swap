@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/25 14:47:26 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 16:33:48 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	main(int ac, char **av)
 		if(!array || array == NULL)
 		{
 			free_array(array);
-			// printf("*\n");
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
@@ -95,6 +94,14 @@ int	main(int ac, char **av)
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
+	//
+	// int i = 0;
+	// while(array[i])
+	// {
+	// 	printf("%s\n", array[i]);
+	// 	i++;
+	// }
+	//
 	work_stack(array);
 	return (0);
 }

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// # include <stdio.h> //HOX
 
 size_t	ft_strlen(const char *s)
 {
@@ -23,6 +22,5 @@ size_t	ft_strlen(const char *s)
 		s++;
 		count++;
 	}
-	// printf("size = %d\n", count);
 	return ((int)count);
 }

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/25 15:06:57 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 16:32:17 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,14 @@ int	work_stack(char **array)
 		i++;
 	}
 	ft_set_zero(st_a, len);
-	i = 0;
+	//
+	// i = 0;
+	// while(st_b[i])
+	// {
+	// 	printf("%ld\n", st_b[i]);
+	// 	i++;
+	// }
+	//
 	if (!work_binaries(st_b, st_a, sorted, len))
 	{
 		free (st_b);
