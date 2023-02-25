@@ -6,23 +6,39 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 09:57:04 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 14:04:46 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int check_input(char **array)
+{
+	int i = 0;
+	int j = 0;
+
+	while (array[i])
+	{
+		j = 0;
+		while (array[i][j])
+		{
+			if ((array[i][j] == '-' && !ft_isdigit(array[i][j + 1])) ||
+				(array[i][j] == '+' && !ft_isdigit(array[i][j + 1])))
+				return (0);
+			if (!ft_isdigit(array[i][j]) && (array[i][j] != '-' && array[i][j] != '+'))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return 1;
+}
+
 char	**ft_one_arg(char **av, char **array)
 {
 	array = ft_split(av[1], 32);
-	if(!array)
+	if (!array || array == 0)
 		error_msg("Error\n", array, 1);
-	// int i = 0;
-	// while (array[i])
-	// {
-	// 	printf("array[%d]= %s", i, array[i]);
-	// 	i++;
-	// }
 	return (array);
 }
 
@@ -34,11 +50,8 @@ char	**ft_many_args(char **av, int ac, char **array)
 	i = 1;
 	j = 0;
 	array = (char **)ft_calloc(sizeof(char *), ac);
-	if (!array)
-	{
-		free_array(array);
-		return (NULL);
-	}
+	if (!array || array == 0)
+		error_msg("Error\n", array, 1);
 	while (i < ac)
 	{
 		array[j] = ft_strdup(av[i]);
@@ -58,14 +71,29 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 	{
 		array = ft_one_arg(av, array);
-		if(!array || array[0] == NULL)
-			error_msg("Error\n", array, 1);
+		if(!array || array == NULL)
+		{
+			free_array(array);
+			// printf("*\n");
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
 	}
 	else if (ac > 2)
 	{
 		array = ft_many_args(av, ac, array);
-		if(!array || array[0] == NULL)
-			error_msg("Error\n", array, 1);
+		if(!array || array == NULL)
+		{
+			free_array(array);
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+	}
+	if (!check_input(array))
+	{
+		free_array(array);
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
 	}
 	work_stack(array);
 	return (0);

@@ -6,19 +6,20 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:49:55 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/22 11:10:40 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 13:36:50 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	count_words(char const *str, char c)
 {
 	int	nb_words;
-
 	nb_words = 0;
+	int res = 0;
 	if (*str == 0)
-		return (0);
+		return (res);
 	while (*str != '\0' && *(str + 1))
 	{
 		if (*str != c)
@@ -26,7 +27,12 @@ int	count_words(char const *str, char c)
 			if (*(str + 1) == c || *(str + 1) == '\0')
 				nb_words++;
 			if (*(str + 1) == '\t')
-				return -1;
+			{
+				// printf("*\n");
+				res = -1;
+				// printf("%d\n", res);
+				return (res);
+			}
 		}
 		str++;
 	}
@@ -83,12 +89,23 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	words = count_words(s, c);
-	if (count_words < 0)
+	if (words < 0)
+	{
+		// printf("*\n");
 		return 0;
+	}
 	array = (char **)malloc(sizeof(char *) * (words + 1));
 	if (array == NULL)
 		return (NULL);
 	array[words] = NULL;
 	array = set_words(array, words, s, c);
+	//
+	// int i = 0;
+	// while(array[i])
+	// {
+	// 	printf("%s\n", array[i]);
+	// 	i ++;
+	// }
+	//
 	return (array);
 }

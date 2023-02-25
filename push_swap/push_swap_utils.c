@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/23 09:26:36 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 13:36:52 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ long	*mini_sort(long *array, int len)
 	int	temp = 0;
 	int i = 0;
 
-	while (i < len - 1) // maybe here??
+	while (i < len - 1)
 	{
 		if (array[i] > array[i + 1])
 		{
@@ -60,7 +60,6 @@ long	*mini_sort(long *array, int len)
 		else
 			i++;
 	}
-	i = 0; // not needed
 	return (array);
 }
 
@@ -79,9 +78,9 @@ void	ft_set_zero(long *st_a, int len)
 void	free_array(char **array)
 {
 	int i = 0;
-
 	while(array[i])
 	{
+		// printf("*\n");
 		free (array[i]);
 		i++;
 	}

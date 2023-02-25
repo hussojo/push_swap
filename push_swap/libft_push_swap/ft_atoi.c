@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 10:30:43 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 16:54:53 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 13:36:40 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	ft_atoi(const char *nptr)
 		if ((res > 2147483647 && s == 1) || (res < -2147483648 && s != 1))
 			return (0);
 	}
-	printf("%d\n", s);
-	printf("%ld\n", res);
+	// printf("%d\n", s);
+	// printf("%ld\n", res);
 	res = res * s;
 	return (res);
 }

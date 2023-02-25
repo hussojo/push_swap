@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/24 15:58:58 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/25 11:18:51 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "libft_push_swap/libft.h"
 
 // push_swap.c
+int		check_input(char **array);
 char	**ft_one_arg(char **av, char **array);
 char	**ft_many_args(char **av, int ac, char **array);
 int		main(int ac, char **av);
