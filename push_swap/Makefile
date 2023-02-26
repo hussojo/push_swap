@@ -6,7 +6,7 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/22 17:18:45 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/26 15:36:41 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ $(NAME): $(SRC)
 	make -C ./libft_push_swap/
 	# mv ./libft_push_swap/libft.a ./libft.a
 	$(CC) -o $(NAME) $(BUILD_FLAGS) $(SRC) -I $(INCLUDE) -g -L./libft_push_swap -lft
+	# -fsanitize=address
 
 
 clean:

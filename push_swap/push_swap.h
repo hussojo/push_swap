@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/25 16:36:00 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/26 14:38:00 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		main(int ac, char **av);
 int		av_count(char **array);
 void	error_msg(char *msg, void *array, int flag);
 int		ready_sorted(long *st_a, int len);
-long	*mini_sort(long *sorted, int len);
+long	*mini_sort(long *array, int len);
 void	ft_set_zero(long *st_a, int len);
 void	free_array(char **array);
 int		find_min(long *array, int len);
