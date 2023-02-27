@@ -6,38 +6,53 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/26 17:49:37 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/27 11:36:15 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_pos(long *sorted, int st_a)
+long	*cpy_array(long *source, long *dest, int len)
 {
-	int i;
-	int pos;
+	int	i;
 
 	i = 0;
-	while(sorted[i] != st_a)
+	while (i < len)
+	{
+		dest[i] = source[i];
+		i++;
+	}
+	return (dest);
+}
+
+int	find_pos(long *sorted, int st_a)
+{
+	int	i;
+	int	pos;
+
+	i = 0;
+	while (sorted[i] != st_a)
 		i++;
 	pos = i + 1;
-	return(pos);
+	return (pos);
 }
 
 long	*no_duplicates(long *st_a, int len)
 {
-	int i = 0;
-	long *sorted;
+	int		i;
+	long	*sorted;
 
+	i = 0;
 	sorted = (long *)ft_calloc(sizeof(long), len);
 	if (!sorted)
 		error_msg("Error\n", sorted, 1);
 	sorted[len] = '\0';
-	while (i < len)
-	{
-		sorted[i] = st_a[i];
-		i++;
-	}
+	// while (i < len)
+	// {
+	// 	sorted[i] = st_a[i];
+	// 	i++;
+	// }
+	sorted = cpy_array(st_a, sorted, len);
 	sorted = mini_sort(sorted, len);
 	if (!sorted)
 		error_msg("Error\n", sorted, 1);
@@ -47,7 +62,7 @@ long	*no_duplicates(long *st_a, int len)
 		if (sorted[i] == sorted[i + 1])
 		{
 			free(sorted);
-			return(0);
+			return (0);
 		}
 		i++;
 	}
@@ -56,7 +71,7 @@ long	*no_duplicates(long *st_a, int len)
 
 long	*do_checks(long *st_a, int len)
 {
-	long *sorted;
+	long	*sorted;
 
 	if (!ready_sorted(st_a, len))
 	{
@@ -66,14 +81,14 @@ long	*do_checks(long *st_a, int len)
 	sorted = no_duplicates(st_a, len);
 	if (!sorted)
 		error_msg("Error\n", st_a, 1);
-	return(sorted);
+	return (sorted);
 }
 
-long *allocate_n_fill_stack(char **array, int len)
+long	*allocate_n_fill_stack(char **array, int len)
 {
-	int i;
-	long num;
-	long *st_a;
+	int		i;
+	long	num;
+	long	*st_a;
 
 	st_a = (long *)ft_calloc(sizeof(long *), len);
 	if (!st_a)
@@ -83,7 +98,7 @@ long *allocate_n_fill_stack(char **array, int len)
 	while (i < len)
 	{
 		num = ft_atol(array[i]);
-		if(num == 0 && *array[i] != '0')
+		if (num == 0 && *array[i] != '0')
 		{
 			free_array(array);
 			error_msg("Error\n", st_a, 1);
@@ -91,17 +106,18 @@ long *allocate_n_fill_stack(char **array, int len)
 		st_a[i] = ft_atol(array[i]);
 		i++;
 	}
-	return(st_a);
+	return (st_a);
 }
 
 int	work_stack(char **array)
 {
-	long *st_a;
-	long *st_b;
-	int i = 0;
-	int len;
-	long *sorted;
+	long	*st_a;
+	long	*st_b;
+	int		i;
+	int		len;
+	long	*sorted;
 
+	i = 0;
 	len = av_count(array);
 	st_a = allocate_n_fill_stack(array, len);
 	free_array(array);
@@ -115,14 +131,6 @@ int	work_stack(char **array)
 		i++;
 	}
 	ft_set_zero(st_a, len);
-	//
-	// i = 0;
-	// while(st_b[i])
-	// {
-	// 	printf("%ld\n", st_b[i]);
-	// 	i++;
-	// }
-	//
 	if (!work_binaries(st_b, st_a, sorted, len))
 	{
 		free (st_b);

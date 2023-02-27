@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/27 10:19:34 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/27 11:36:08 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h> // write
 # include <stdlib.h> // NULL, exit failure & success, ft_calloc
 # include <stdio.h>
-# include <stdbool.h> // boolean values
+// # include <stdbool.h> // boolean values
 
 # include "libft_push_swap/libft.h"
 
@@ -27,6 +27,14 @@ char	**ft_one_arg(char **av, char **array);
 char	**ft_many_args(char **av, int ac, char **array);
 int		main(int ac, char **av);
 
+// work_stack.c
+long	*cpy_array(long *source, long *dest, int len);
+int		find_pos(long *sorted, int st_a);
+long	*no_duplicates(long *st_a, int len);
+long	*do_checks(long *st_a, int len);
+long	*allocate_n_fill_stack(char **array, int len);
+int		work_stack(char **array);
+
 // push_swap_utils.c
 int		av_count(char **array);
 void	error_msg(char *msg, void *array, int flag);
@@ -35,13 +43,6 @@ long	*mini_sort(long *array, int len);
 void	ft_set_zero(long *st_a, int len);
 void	free_array(char **array);
 int		find_min(long *array, int len);
-
-// work_stack.c
-int		find_pos(long *sorted, int st_a);
-long	*no_duplicates(long *st_a, int len);
-long	*do_checks(long *st_a, int len);
-long	*allocate_n_fill_stack(char **array, int len);
-int		work_stack(char **array);
 
 // work_binaries.c
 void	sort_two(long *array);
