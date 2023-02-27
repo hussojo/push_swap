@@ -6,17 +6,19 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/27 09:00:51 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/27 10:19:33 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_input(char **array)
+int	check_input(char **array)
 {
-	int i = 0;
-	int j = 0;
+	int	i;
+	int	j;
 
+	i = 0;
+	j = 0;
 	while (array[i])
 	{
 		j = 0;
@@ -25,13 +27,39 @@ int check_input(char **array)
 			if ((array[i][j] == '-' && !ft_isdigit(array[i][j + 1])) ||
 				(array[i][j] == '+' && !ft_isdigit(array[i][j + 1])))
 				return (0);
-			if (!ft_isdigit(array[i][j]) && (array[i][j] != '-' && array[i][j] != '+'))
+			if (!ft_isdigit(array[i][j]) && (array[i][j] != '-'
+				&& array[i][j] != '+'))
 				return (0);
 			j++;
 		}
 		i++;
 	}
-	return 1;
+	return (1);
+}
+
+char	**get_args(char **av, int ac, char **array)
+{
+	if (ac == 2)
+	{
+		array = ft_one_arg(av, array);
+		if (!array || array == NULL)
+		{
+			free_array(array);
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+	}
+	else if (ac > 2)
+	{
+		array = ft_many_args(av, ac, array);
+		if (!array || array == NULL)
+		{
+			free_array(array);
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+	}
+	return (array);
 }
 
 char	**ft_one_arg(char **av, char **array)
@@ -68,26 +96,8 @@ int	main(int ac, char **av)
 	array = 0;
 	if (ac == 1)
 		return (0);
-	else if (ac == 2)
-	{
-		array = ft_one_arg(av, array);
-		if(!array || array == NULL)
-		{
-			free_array(array);
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-	}
-	else if (ac > 2)
-	{
-		array = ft_many_args(av, ac, array);
-		if(!array || array == NULL)
-		{
-			free_array(array);
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-	}
+	if (ac >= 2)
+		array = get_args(av, ac, array);
 	if (!check_input(array))
 	{
 		free_array(array);

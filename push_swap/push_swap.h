@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/26 14:38:00 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/27 10:19:34 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 // push_swap.c
 int		check_input(char **array);
+char	**get_args(char **av, int ac, char **array);
 char	**ft_one_arg(char **av, char **array);
 char	**ft_many_args(char **av, int ac, char **array);
 int		main(int ac, char **av);
