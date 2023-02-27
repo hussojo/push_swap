@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/27 11:36:15 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/27 11:57:59 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,6 @@ long	*no_duplicates(long *st_a, int len)
 	if (!sorted)
 		error_msg("Error\n", sorted, 1);
 	sorted[len] = '\0';
-	// while (i < len)
-	// {
-	// 	sorted[i] = st_a[i];
-	// 	i++;
-	// }
 	sorted = cpy_array(st_a, sorted, len);
 	sorted = mini_sort(sorted, len);
 	if (!sorted)
@@ -117,7 +112,7 @@ int	work_stack(char **array)
 	int		len;
 	long	*sorted;
 
-	i = 0;
+	i = -1;
 	len = av_count(array);
 	st_a = allocate_n_fill_stack(array, len);
 	free_array(array);
@@ -125,11 +120,8 @@ int	work_stack(char **array)
 	st_b = (long *)ft_calloc(sizeof(long *), len);
 	if (!st_b)
 		error_msg("Error\n", st_b, 1);
-	while(i < len)
-	{
+	while (++i < len)
 		st_b[i] = find_pos(sorted, st_a[i]);
-		i++;
-	}
 	ft_set_zero(st_a, len);
 	if (!work_binaries(st_b, st_a, sorted, len))
 	{
