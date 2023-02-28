@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:49:55 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/25 15:30:15 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/28 10:32:50 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 int	count_words(char const *str, char c)
 {
 	int	nb_words;
+	int	res;
+
 	nb_words = 0;
-	int res = 0;
+	res = 0;
 	if (*str == 0)
 		return (res);
 	while (*str != '\0' && *(str + 1))
@@ -87,7 +89,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	words = count_words(s, c);
 	if (words < 0)
-		return 0;
+		return (0);
 	array = (char **)malloc(sizeof(char *) * (words + 1));
 	if (array == NULL)
 		return (NULL);

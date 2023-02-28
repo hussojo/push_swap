@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/28 09:14:28 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/28 10:34:58 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,3 @@ void	push_op(long *array_from, long *array_to, int len)
 	op_pb(array_from, array_to, len);
 	return ;
 }
-
-
