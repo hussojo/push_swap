@@ -6,7 +6,7 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/26 15:36:41 by jhusso           ###   ########.fr        #
+#    Updated: 2023/02/28 09:31:02 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT = ./libft_push_swap
 INCLUDE = ./libft_push_swap/libft.h
 
 SRC =	push_swap.c push_swap_utils.c work_stack.c work_binaries.c push_op.c \
-		sort_op.c
+		sort_op.c array_utils.c
 
 OBJ = $(SRC:.c=.o)
 

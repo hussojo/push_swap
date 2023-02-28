@@ -6,24 +6,11 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/27 15:38:29 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/28 09:29:59 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-long	*cpy_array(long *source, long *dest, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		dest[i] = source[i];
-		i++;
-	}
-	return (dest);
-}
 
 int	find_pos(long *sorted, int st_a)
 {

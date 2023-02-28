@@ -6,21 +6,11 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/26 15:36:43 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/28 09:29:07 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	av_count(char **array)
-{
-	int count;
-
-	count = 0;
-	while (array[count])
-		count++;
-	return(count);
-}
 
 void	error_msg(char *msg, void *array, int flag)
 {
@@ -31,23 +21,25 @@ void	error_msg(char *msg, void *array, int flag)
 
 int	ready_sorted(long *st_a, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len -1)
 	{
-		if (st_a[i+1] < st_a[i])
-			return 1;
+		if (st_a[i + 1] < st_a[i])
+			return (1);
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 long	*mini_sort(long *array, int len)
 {
-	int	temp = 0;
-	int i = 0;
+	int	temp;
+	int	i;
 
+	i = 0;
+	temp = 0;
 	while (i < len - 1)
 	{
 		if (array[i] > array[i + 1])
@@ -63,36 +55,15 @@ long	*mini_sort(long *array, int len)
 	return (array);
 }
 
-void	ft_set_zero(long *st_a, int len)
-{
-	int i;
-
-	i = 0;
-	while(i < len)
-	{
-		st_a[i] = 0;
-		i++;
-	}
-}
-
-void	free_array(char **array)
-{
-	int i = 0;
-	while(array[i])
-	{
-		// printf("*\n");
-		free (array[i]);
-		i++;
-	}
-	free(array);
-}
-
 int	find_min(long *array, int len)
 {
-	int min = 0;
-	int i = 0;
-	int index = 0;
+	int	min;
+	int	i;
+	int	index;
 
+	index = 0;
+	i = 0;
+	min = 0;
 	min = array[0];
 	while (i < len)
 	{
@@ -103,5 +74,5 @@ int	find_min(long *array, int len)
 		}
 		i++;
 	}
-	return(index);
+	return (index);
 }

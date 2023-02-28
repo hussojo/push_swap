@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/28 09:03:21 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/28 09:30:12 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ char	**ft_many_args(char **av, int ac, char **array);
 int		main(int ac, char **av);
 
 // work_stack.c
-long	*cpy_array(long *source, long *dest, int len);
 int		find_pos(long *sorted, int st_a);
 long	*no_duplicates(long *st_a, int len);
 long	*do_checks(long *st_a, int len);
@@ -36,13 +35,16 @@ long	*allocate_n_fill_stack(char **array, int len);
 int		work_stack(char **array);
 
 // push_swap_utils.c
-int		av_count(char **array);
 void	error_msg(char *msg, void *array, int flag);
 int		ready_sorted(long *st_a, int len);
 long	*mini_sort(long *array, int len);
+int		find_min(long *array, int len);
+
+// array_utils.c
+long	*cpy_array(long *source, long *dest, int len);
+int		av_count(char **array);
 void	ft_set_zero(long *st_a, int len);
 void	free_array(char **array);
-int		find_min(long *array, int len);
 
 // work_binaries.c
 void	sort_two(long *array);
