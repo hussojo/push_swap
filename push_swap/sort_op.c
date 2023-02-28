@@ -6,16 +6,16 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:46:29 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/26 15:36:46 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/02/28 09:10:59 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void op_sa(long *array)
+void	op_sa(long *array)
 {
-	int temp;
-	int i;
+	int	temp;
+	int	i;
 
 	temp = 0;
 	i = 0;
@@ -23,7 +23,6 @@ void op_sa(long *array)
 	array[i] = array[i + 1];
 	array[i + 1] = temp;
 	ft_putstr_fd("sa\n", 1);
-	// printf("sa\n");
 	// printf("sa\n");
 	// i = 0;
 	// while(array[i])
@@ -34,11 +33,11 @@ void op_sa(long *array)
 	return ;
 }
 
-void op_rra(long *array, int len)
+void	op_rra(long *array, int len)
 {
-	int temp;
-	int i;
-	int j;
+	int	temp;
+	int	i;
+	int	j;
 
 	temp = 0;
 	i = 0;
@@ -54,7 +53,6 @@ void op_rra(long *array, int len)
 	array[i] = temp;
 	ft_putstr_fd("rra\n", 1);
 	// printf("rra\n");
-	// printf("rra\n");
 	// i = 0;
 	// while(array[i])
 	// {
@@ -64,10 +62,10 @@ void op_rra(long *array, int len)
 	return ;
 }
 
-void op_ra(long *array, int len)
+void	op_ra(long *array, int len)
 {
-int temp;
-	int i;
+	int	temp;
+	int	i;
 
 	temp = 0;
 	i = 0;
@@ -79,7 +77,6 @@ int temp;
 	}
 	array[i] = temp;
 	ft_putstr_fd("ra\n", 1);
-	// printf("ra\n");
 	// printf("ra\n");
 	// i = 0;
 	// while(array[i])
