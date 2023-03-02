@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/28 13:46:44 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:53:13 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	op_pa(long *array_from, long *array_to, int len)
 	if (array_from[1] != 0)
 		move_up(&array_from, len);
 	ft_putstr_fd("pa\n", 1);
-	// printf("pa\n");
 }
 
 void	op_pb(long *array_from, long *array_to, int len)
@@ -30,7 +29,6 @@ void	op_pb(long *array_from, long *array_to, int len)
 	array_from[0] = 0;
 	move_up(&array_from, len);
 	ft_putstr_fd("pb\n", 1);
-	// printf("pb\n");
 }
 
 void	move_up(long **array, int len)

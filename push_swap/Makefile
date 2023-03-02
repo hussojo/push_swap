@@ -6,7 +6,7 @@
 #    By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 15:49:29 by jhusso            #+#    #+#              #
-#    Updated: 2023/02/28 09:35:35 by jhusso           ###   ########.fr        #
+#    Updated: 2023/03/02 16:49:47 by jhusso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ all: $(NAME)
 
 $(NAME): $(SRC)
 	make -C ./libft_push_swap/
-	# mv ./libft_push_swap/libft.a ./libft.a
 	$(CC) -o $(NAME) $(BUILD_FLAGS) $(SRC) -I $(INCLUDE) -g -L./libft_push_swap -lft
 	# -fsanitize=address
 
@@ -40,6 +39,5 @@ fclean: clean
 	make -C ./libft_push_swap fclean
 
 re: fclean all
-
 
 .PHONY: all clean fclean re
