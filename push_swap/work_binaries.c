@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/02 16:53:34 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:46:54 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	work_binaries(long *st_b, long *st_a, long *sorted, int len)
 	while ((len >> size) != 0)
 		size++;
 	if (len < 6)
-		sort_under_six(st_b, st_a, len);
+		sort(st_b, st_a, len);
 	else
 		sort_bin(st_b, st_a, size, len);
 	return (1);

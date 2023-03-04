@@ -6,23 +6,11 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/04 13:07:36 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:06:15 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	find_pos(long *sorted, int st_a)
-{
-	int	i;
-	int	pos;
-
-	i = 0;
-	while (sorted[i] != st_a)
-		i++;
-	pos = i + 1;
-	return (pos);
-}
 
 long	*no_duplicates(long *st_a, int len)
 {
@@ -39,33 +27,48 @@ long	*no_duplicates(long *st_a, int len)
 	if (!sorted)
 		error_msg("Error\n", sorted, 1);
 	i = 0;
-	while (sorted[i])
+	while (i < len)
 	{
 		if (sorted[i] == sorted[i + 1])
-		{
-			free(sorted);
 			return (0);
-		}
 		i++;
 	}
 	return (sorted);
 }
 
-long	*do_checks(long *st_a, int len)
+void	set_other_stack(long *sorted, long *st_a, int len)
+{
+	long	*st_b;
+	int		i;
+
+	st_b = (long *)ft_calloc(sizeof(long *), len);
+	if (!st_b)
+		error_msg("Error\n", st_b, 1);
+	i = -1;
+	while (++i < len)
+		st_b[i] = find_pos(sorted, st_a[i]);
+	ft_set_zero(st_a, len);
+	work_binaries(st_b, st_a, sorted, len);
+}
+
+void	do_checks(long *st_a, int len)
 {
 	long	*sorted;
 
 	sorted = no_duplicates(st_a, len);
 	if (!sorted)
+	{
+		free (sorted);
 		error_msg("Error\n", st_a, 1);
+	}
 	if (!ready_sorted(st_a, len))
 	{
-		// if (st_a[0] == st_a[1])
+		if (st_a[0] == st_a[1])
 			error_msg("Error\n", st_a, 1);
 		free(st_a);
 		exit(0);
 	}
-	return (sorted);
+	set_other_stack(sorted, st_a, len);
 }
 
 long	*allocate_n_fill_stack(char **array, int len)
@@ -93,30 +96,13 @@ long	*allocate_n_fill_stack(char **array, int len)
 	return (st_a);
 }
 
-int	work_stack(char **array)
+void	work_stack(char **array)
 {
 	long	*st_a;
-	long	*st_b;
-	int		i;
 	int		len;
-	long	*sorted;
 
-	i = -1;
 	len = av_count(array);
 	st_a = allocate_n_fill_stack(array, len);
 	free_array(array);
-	sorted = do_checks(st_a, len);
-	st_b = (long *)ft_calloc(sizeof(long *), len);
-	if (!st_b)
-		error_msg("Error\n", st_b, 1);
-	while (++i < len)
-		st_b[i] = find_pos(sorted, st_a[i]);
-	ft_set_zero(st_a, len);
-	if (!work_binaries(st_b, st_a, sorted, len))
-	{
-		free (st_b);
-		free (st_a);
-		error_msg("Error\n", sorted, 1);
-	}
-	return (1);
+	do_checks(st_a, len);
 }
