@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/02 16:53:12 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:07:36 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,16 @@ long	*do_checks(long *st_a, int len)
 {
 	long	*sorted;
 
+	sorted = no_duplicates(st_a, len);
+	if (!sorted)
+		error_msg("Error\n", st_a, 1);
 	if (!ready_sorted(st_a, len))
 	{
-		if (st_a[0] == st_a[1])
+		// if (st_a[0] == st_a[1])
 			error_msg("Error\n", st_a, 1);
 		free(st_a);
 		exit(0);
 	}
-	sorted = no_duplicates(st_a, len);
-	if (!sorted)
-		error_msg("Error\n", st_a, 1);
 	return (sorted);
 }
 

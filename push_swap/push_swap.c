@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/28 09:10:55 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/04 11:20:17 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ int	check_input(char **array)
 				return (0);
 			if (!ft_isdigit(array[i][j]) && (array[i][j] != '-'
 				&& array[i][j] != '+'))
+				return (0);
+			if ((array[i][j] == '-' || array[i][j] == '+')
+				&& ft_isdigit(array[i][j - 1]))
 				return (0);
 			j++;
 		}
