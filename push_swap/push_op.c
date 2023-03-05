@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:52:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/02 16:47:46 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:04:22 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_pa(long *array_from, long *array_to, int len)
+void	op_pa(int *array_from, int *array_to, int len)
 {
 	if (array_to[0] != 0)
 		move_down(&array_to);
@@ -23,7 +23,7 @@ void	op_pa(long *array_from, long *array_to, int len)
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	op_pb(long *array_from, long *array_to, int len)
+void	op_pb(int *array_from, int *array_to, int len)
 {
 	array_to[0] = array_from[0];
 	array_from[0] = 0;
@@ -31,7 +31,7 @@ void	op_pb(long *array_from, long *array_to, int len)
 	ft_putstr_fd("pb\n", 1);
 }
 
-void	move_up(long **array, int len)
+void	move_up(int **array, int len)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ void	move_up(long **array, int len)
 	(*array)[i] = 0;
 }
 
-void	move_down(long **array)
+void	move_down(int **array)
 {
 	int	i;
 
@@ -59,7 +59,7 @@ void	move_down(long **array)
 	(*array)[i] = 0;
 }
 
-void	push_op(long *array_from, long *array_to, int len)
+void	push_op(int *array_from, int *array_to, int len)
 {
 	if (array_to[0] != 0)
 		move_down (&array_to);

@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:51 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/04 14:04:53 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:39:03 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	error_msg(char *msg, void *array, int flag)
 	exit(flag);
 }
 
-int	find_pos(long *sorted, int st_a)
+int	find_pos(int *sorted, int st_a)
 {
 	int	i;
 	int	pos;
@@ -31,21 +31,21 @@ int	find_pos(long *sorted, int st_a)
 	return (pos);
 }
 
-int	ready_sorted(long *st_a, int len)
+int	ready_sorted(int *st_a, int len)
 {
 	int	i;
 
 	i = 0;
 	while (i < len -1)
 	{
-		if (st_a[i + 1] < st_a[i])
+		if (st_a[i + 1] <= st_a[i])
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-long	*mini_sort(long *array, int len)
+int	*mini_sort(int *array, int len)
 {
 	int	temp;
 	int	i;
@@ -67,7 +67,7 @@ long	*mini_sort(long *array, int len)
 	return (array);
 }
 
-int	find_min(long *array, int len)
+int	find_min(int *array, int len)
 {
 	int	min;
 	int	i;

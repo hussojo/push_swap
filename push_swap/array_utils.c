@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:28:06 by jhusso            #+#    #+#             */
-/*   Updated: 2023/02/28 09:32:29 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:04:22 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	*cpy_array(long *source, long *dest, int len)
+int	*cpy_array(int *source, int *dest, int len)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ int	av_count(char **array)
 	return (count);
 }
 
-void	ft_set_zero(long *st_a, int len)
+void	ft_set_zero(int *st_a, int len)
 {
 	int	i;
 

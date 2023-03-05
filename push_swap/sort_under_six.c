@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:35:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/02 15:51:14 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:04:22 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_sb(long *array)
+void	op_sb(int *array)
 {
 	int	temp;
 	int	i;
@@ -26,7 +26,7 @@ void	op_sb(long *array)
 	return ;
 }
 
-void	sort_three(long *array, int len)
+void	sort_three(int *array, int len)
 {
 	int	i;
 
@@ -41,9 +41,9 @@ void	sort_three(long *array, int len)
 	return ;
 }
 
-void	sort(long *st_b, long *st_a, int len)
+void	sort(int *st_b, int *st_a, int len)
 {
-	long	min;
+	int	min;
 	int		mid;
 	int		temp;
 

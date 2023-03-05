@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:38:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/05 13:42:10 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:43:10 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_rot_bin(long *st_b, long *st_a, int len, int i)
+int	push_rot_bin(int *st_b, int *st_a, int len, int i)
 {
 	int	flag;
 
@@ -27,7 +27,7 @@ int	push_rot_bin(long *st_b, long *st_a, int len, int i)
 	return (flag);
 }
 
-void	sort_bin(long *st_b, long *st_a, int size, int len)
+void	sort_bin(int *st_b, int *st_a, int size, int len)
 {
 	int	i;
 	int	j;
@@ -54,7 +54,7 @@ void	sort_bin(long *st_b, long *st_a, int size, int len)
 	}
 }
 
-int	work_binaries(long *st_b, long *st_a, long *sorted, int len)
+void	work_binaries(int *st_b, int *st_a, int *sorted, int len)
 {
 	int	size;
 
@@ -66,5 +66,4 @@ int	work_binaries(long *st_b, long *st_a, long *sorted, int len)
 		sort(st_b, st_a, len);
 	else
 		sort_bin(st_b, st_a, size, len);
-	return (1);
 }

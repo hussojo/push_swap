@@ -6,13 +6,13 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:46:29 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/04 13:35:06 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:04:22 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_sa(long *array)
+void	op_sa(int *array)
 {
 	int	temp;
 	int	i;
@@ -26,7 +26,7 @@ void	op_sa(long *array)
 	return ;
 }
 
-void	op_rra(long *array, int len)
+void	op_rra(int *array, int len)
 {
 	int	temp;
 	int	i;
@@ -48,7 +48,7 @@ void	op_rra(long *array, int len)
 	return ;
 }
 
-void	op_ra(long *array, int len)
+void	op_ra(int *array, int len)
 {
 	int	temp;
 	int	i;

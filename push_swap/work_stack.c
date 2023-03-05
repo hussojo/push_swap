@@ -6,22 +6,21 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/05 13:41:08 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:39:02 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	*no_duplicates(long *st_a, int len)
+int	*no_duplicates(int *st_a, int len)
 {
-	int		i;
-	long	*sorted;
+	int	i;
+	int	*sorted;
 
 	i = 0;
-	sorted = (long *)ft_calloc(sizeof(long), len);
+	sorted = (int *)ft_calloc(sizeof(int), len);
 	if (!sorted)
 		error_msg("Error\n", sorted, 1);
-	sorted[len] = '\0';
 	sorted = cpy_array(st_a, sorted, len);
 	sorted = mini_sort(sorted, len);
 	if (!sorted)
@@ -36,12 +35,12 @@ long	*no_duplicates(long *st_a, int len)
 	return (sorted);
 }
 
-void	set_other_stack(long *sorted, long *st_a, int len)
+void	set_other_stack(int *sorted, int *st_a, int len)
 {
-	long	*st_b;
-	int		i;
+	int	*st_b;
+	int	i;
 
-	st_b = (long *)ft_calloc(sizeof(long *), len);
+	st_b = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_b)
 		error_msg("Error\n", st_b, 1);
 	i = -1;
@@ -51,33 +50,28 @@ void	set_other_stack(long *sorted, long *st_a, int len)
 	work_binaries(st_b, st_a, sorted, len);
 }
 
-void	do_checks(long *st_a, int len)
+void	do_checks(int *st_a, int len)
 {
-	long	*sorted;
+	int	*sorted;
 
 	sorted = no_duplicates(st_a, len);
 	if (!sorted)
-	{
-		free (sorted);
 		error_msg("Error\n", st_a, 1);
-	}
 	if (!ready_sorted(st_a, len))
 	{
-		if (st_a[0] == st_a[1])
-			error_msg("Error\n", st_a, 1);
 		free(st_a);
 		exit(0);
 	}
 	set_other_stack(sorted, st_a, len);
 }
 
-long	*allocate_n_fill_stack(char **array, int len)
+int	*allocate_n_fill_stack(char **array, int len)
 {
 	int		i;
-	long	num;
-	long	*st_a;
+	int		num;
+	int		*st_a;
 
-	st_a = (long *)ft_calloc(sizeof(long *), len);
+	st_a = (int *)ft_calloc(sizeof(int *), len);
 	if (!st_a)
 		error_msg("Error\n", st_a, 1);
 	i = 0;
@@ -98,8 +92,8 @@ long	*allocate_n_fill_stack(char **array, int len)
 
 void	work_stack(char **array)
 {
-	long	*st_a;
-	int		len;
+	int	*st_a;
+	int	len;
 
 	len = av_count(array);
 	if (!len)
