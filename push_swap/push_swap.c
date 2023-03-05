@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:49:16 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/04 14:04:54 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 12:36:12 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	main(int ac, char **av)
 	char	**array;
 
 	array = 0;
-	if (ac < 2)
+	if ((ac != 1 && !ft_strncmp(av[1], "", 1)) || ac < 2)
 		return (0);
 	if (ac >= 2)
 		array = get_args(av, ac, array);
