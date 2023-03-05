@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:35:18 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/05 14:04:22 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:46:35 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	sort_three(int *array, int len)
 void	sort(int *st_b, int *st_a, int len)
 {
 	int	min;
-	int		mid;
-	int		temp;
+	int	mid;
+	int	temp;
 
 	while (len > 3)
 	{
