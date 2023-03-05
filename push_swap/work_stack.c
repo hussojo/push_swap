@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:16:33 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/05 12:54:45 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 13:41:08 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,19 @@ void	work_stack(char **array)
 	long	*st_a;
 	int		len;
 
-	len = av_count(array);  //// protect len
+	len = av_count(array);
+	if (!len)
+	{
+		free_array(array);
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	st_a = allocate_n_fill_stack(array, len);
+	if (!st_a)
+	{
+		free_array(array);
+		error_msg("Error\n", st_a, 1);
+	}
 	free_array(array);
 	do_checks(st_a, len);
 }

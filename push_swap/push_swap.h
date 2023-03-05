@@ -6,7 +6,7 @@
 /*   By: jhusso <jhusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:41:25 by jhusso            #+#    #+#             */
-/*   Updated: 2023/03/05 12:16:44 by jhusso           ###   ########.fr       */
+/*   Updated: 2023/03/05 13:42:52 by jhusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h> // write
 # include <stdlib.h> // NULL, exit failure & success, ft_calloc
-# include <stdio.h> // REMEMBER TO REMOOOOOOOOOVEEEEEEEEEE
 
 # include "libft_push_swap/libft.h"
 
